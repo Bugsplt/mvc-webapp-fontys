@@ -1,0 +1,9 @@
+C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppDAL\bin\Debug\netstandard2.1\WebAppDAL.deps.json
+C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppDAL\bin\Debug\netstandard2.1\WebAppDAL.dll
+C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppDAL\bin\Debug\netstandard2.1\WebAppDAL.pdb
+C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppDAL\obj\Debug\netstandard2.1\WebAppDAL.csprojAssemblyReference.cache
+C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppDAL\obj\Debug\netstandard2.1\WebAppDAL.AssemblyInfoInputs.cache
+C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppDAL\obj\Debug\netstandard2.1\WebAppDAL.AssemblyInfo.cs
+C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppDAL\obj\Debug\netstandard2.1\WebAppDAL.csproj.CoreCompileInputs.cache
+C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppDAL\obj\Debug\netstandard2.1\WebAppDAL.dll
+C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppDAL\obj\Debug\netstandard2.1\WebAppDAL.pdb

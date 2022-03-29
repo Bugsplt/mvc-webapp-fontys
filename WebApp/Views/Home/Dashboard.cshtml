@@ -1,0 +1,65 @@
+﻿
+@using LogicLayer
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<h1>@ViewData["Title"]</h1>
+@{
+    Layout = Layout;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<screen style="display:flex;">
+    <div style="left:0; position: relative; width: 70%">
+        <div style="display: flex">
+        <div style="left:0; position: relative; width: 20%">
+            <label>Filters:</label>
+            <select>
+                <option>premium</option>
+                <option>free</option>
+                <option>prospects</option>
+            </select>
+        </div>
+            <div style="position: relative; width: 80%">
+                <form>
+                    <input type="text" value="searchbar" style="width: 80%">
+                </form>
+            </div>
+              </div>
+          <select name="credit_card" style="height: 70vh; width: 90%" size="100">
+          @foreach (var customer in Toolbox.CustomerContainer.GetCustomers())
+          {
+              <option value="@customer">
+                  <collumn>@customer.FirstName</collumn>
+                  <collumn>@customer.Email</collumn>
+                  <collumn>@customer.PhoneNr</collumn>
+              </option>
+          }
+          </select>
+          
+    </div>
+    <div style="right:0; position: relative; width: 30%">
+        <p>
+            some customer details <br>
+            some customer details <br>
+            some customer details <br>
+            some customer details <br>
+            some customer details <br>
+            some customer details <br>
+            some customer details <br>
+            some customer details <br>
+            some customer details <br>
+            some customer details <br>
+            some customer details <br>
+            some customer details <br>
+        </p>
+    </div>
+</screen>
+</body>
+</html>
