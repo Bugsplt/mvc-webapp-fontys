@@ -9,13 +9,13 @@ namespace LogicLayer
 {
     public static class Toolbox
     {
-        private static IApiClient _apiClient = new ApiClient();
+        public static IApiClient _apiClient = new ApiClient();
         private static IRequestBuilder _requestBuilder = new RequestBuilder();
         public static CustomerContainer CustomerContainer = new();
         public static MapDataContainer MapDataContainer = new();
         public static ProspectContainer ProspectContainer = new();
         public static CustomerViewHelper CustomerViewHelper = new();
-        public static CustomerDetailsHelper CustomerDetailsHelper = new();
+        public static CustomerDetailsHelper CustomerDetailsHelper = new(_apiClient);
 
         
         
