@@ -1,4 +1,5 @@
-﻿
+﻿@model CustomerDetails
+
 @{
     ViewData["Title"] = "Customer";
 }
@@ -6,41 +7,161 @@
 @{
     Layout = Layout;
 }
-
+@{
+    
+}
 <!DOCTYPE html>
 <html>
 <head>
     <title>title</title>
 </head>
 <body>
-<div style="height: 80vh">
-    <div style="display:flex; height: 10%">
-        <div style="left: 0; width: 10%; position: relative"><button style="width: 100%; height: 100%">back</button></div>
-        <div style="width: 60%; position: relative; border: #0b2e13"><p>selected customer</p></div>
-        <div style="width: 10%; position: relative"><button style="width: 100%; height: 100%">GDPR</button></div>
-        <div style="width: 20%; position: relative"><p>status</p></div>
-    </div>
-    <div style="display:flex; height: 90%">
-        <div style="left: 0; width: 70%; position: relative">
-            <div style="height: 10%"><textarea style="height: 100%; width: 100%; resize: none">notes</textarea></div>
-            <div style="display:flex; height: 45%">
-                <div style="width: 33%; position: relative"><p style="position: center">upcoming tasks</p></div>
-                <div style="width: 33%; position: relative"><p style="position: center">order history</p></div>
-                <div style="width: 33%; position: relative"><p style="position: center">tips</p></div>
+@using (Html.BeginForm())
+{
+    <div style="height: 80vh">
+        <div style="display:flex; height: 10%">
+            <div style="left: 0; width: 10%; position: relative">
+                <button style="width: 100%; height: 100%">back</button>
             </div>
-            <div style="height: 45%">
-                <select name="credit_card" style="height: 100%; width: 100%" size="100">
-                    @for (var i = 0; i < 100; i++)
-                    {
-                        <option value="TestValue">TestValue</option>
-                    }
-                </select>
+            <div style="width: 60%; position: relative; border: #0b2e13">
+                <p>@Model.Email @Model.Name</p>
+                @Html.HiddenFor(model => model.Email, new { Value = Model.Email })
+                 @Html.HiddenFor(model => model.Name, new { Value = Model.Name })
+            </div>
+            <div style="width: 10%; position: relative">
+                <button style="width: 100%; height: 100%">GDPR</button>
+            </div>
+            <div style="width: 20%; position: relative">
+                <p>@Model.Status</p>
+                 @Html.HiddenFor(model => model.Status, new { Value = Model.Status })
             </div>
         </div>
-        <div style="width: 30%; position: relative">
-            <p style="position: center">activity history</p>
+        <div style="display:flex; height: 90%">
+            <div style="left: 0; width: 70%; position: relative">
+                <div style="height: 10%">
+                    <div style="height: 100%; width: 100%; overflow: scroll" size="10">
+                        @{
+                            var i = 0;
+                            foreach (var note in Model.Notes)
+                            {
+                                var j = i;
+                                <div style="display: flex">
+                                    <p>@note</p>
+                                    @Html.TextBoxFor(model => model.Notes[j])
+                                </div>
+                                i++;
+                            }
+                        }
+                    </div>
+                </div>
+                <div style="display:flex; height: 45%">
+                    <div style="width: 33%; position: relative">
+                        <select style="height: 100%; width: 100%" size="10">
+                            @* @{ *@
+                            @*     i = 0; *@
+                            @*     foreach (var task in Model.Tasks) *@
+                            @*     { *@
+                            @*         <option value="@task">@task</option> *@
+                            @*         i++; *@
+                            @*     } *@
+                            @* } *@
+                            @*  @Html.HiddenFor(model => model.Tasks, new { Value = Model.Tasks }) *@
+                        </select>
+                    </div>
+                    <div style="width: 33%; position: relative">
+                        @* @{ *@
+                        @*     i = 0; *@
+                        @*     foreach (var order in Model.Orders) *@
+                        @*     { *@
+                        @*         <option value="@order">@order</option> *@
+                        @*         i++; *@
+                        @*     } *@
+                        @* } *@
+                        @*  @Html.HiddenFor(model => model.Orders, new { Value = Model.Orders }) *@
+                    </div>
+                    <div style="width: 33%; position: relative">
+                        @* @{ *@
+                        @*     i = 0; *@
+                        @*     foreach (var tip in Model.Tips) *@
+                        @*     { *@
+                        @*         <option value="@tip">@tip</option> *@
+                        @*         i++; *@
+                        @*     } *@
+                        @* } *@
+                        @*  @Html.HiddenFor(model => model.Tips, new { Value = Model.Tips }) *@
+                    </div>
+                </div>
+                <div style="height: 45%">
+                    <div style="height: 100%; width: 100%; overflow: scroll">
+                        <div style="display: flex">
+                            <p>Id: @Model.Id</p>
+                            @Html.TextBoxFor(model => model.Id)
+                        </div>
+                        <div style="display: flex">
+                            <p>Cat name: @Model.CatName</p>
+                            @Html.TextBoxFor(model => model.CatName)
+                        </div>
+                        <div style="display: flex">
+                            <p>Phone number: @Model.Phone</p>
+                            @Html.TextBoxFor(model => model.Phone)
+                        </div>
+                        <div style="display: flex">
+                            <p>Country: @Model.Country</p>
+                            @Html.TextBoxFor(model => model.Country)
+                        </div>
+                        <div style="display: flex">
+                            <p>Language: @Model.Language</p>
+                            @Html.TextBoxFor(model => model.Language)
+                        </div>
+                        <div style="display: flex">
+                            <p> Insta post id: @Model.InstaPostId</p>
+                            @Html.TextBoxFor(model => model.InstaPostId)
+                        </div>
+                        <div style="display: flex">
+                            <p>Insta ad id: @Model.InstaAdId</p>
+                            @Html.TextBoxFor(model => model.InstaAdId)
+                        </div>
+                        <div style="display: flex">
+                            <p>Fb post id: @Model.FbPostId</p>
+                            @Html.TextBoxFor(model => model.FbPostId)
+                        </div>
+                         <div style="display: flex">
+                             <p>Fb ad id: @Model.FbAdId</p>
+                             @Html.TextBoxFor(model => model.FbAdId)
+                                </div>                    
+                        @* @{ *@
+                        @*     i = 0; *@
+                        @*     foreach (var search in Model.Searches) *@
+                        @*     { *@
+                        @*         <div style="display: flex"> *@
+                        @*              <p>@search</p> *@
+                        @*         </div> *@
+                        @*         i++; *@
+                        @*     } *@
+                        @* } *@
+                        @*  @Html.HiddenFor(model => model.Searches, new { Value = Model.Searches }) *@
+                    </div>
+                </div>
+            </div>
+            <div style="width: 30%; position: relative">
+                <div style="height: 50%">
+                    @* @{ *@
+                    @*     i = 0; *@
+                    @*     foreach (var activity in Model.Activity) *@
+                    @*     { *@
+                    @*         <option value="@activity">Activity: @activity</option> *@
+                    @*         i++; *@
+                    @*     } *@
+                    @* } *@
+                    @*  @Html.HiddenFor(model => model.Activity, new { Value = Model.Activity }) *@
+                </div>
+                <div style="height: 50%;">
+                    <button type="submit">Save edits</button>
+                </div>
+            </div>
+
         </div>
     </div>
-</div>
+}
 </body>
 </html>

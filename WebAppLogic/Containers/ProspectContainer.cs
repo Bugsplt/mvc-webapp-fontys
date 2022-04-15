@@ -27,6 +27,11 @@ namespace LogicLayer.Containers
             Prospects.Clear();
         }
 
+        public void SetProspects(List<Prospect> prospects)
+        {
+            Prospects = prospects;
+        }
+        
         public void Load()
         {
             //todo get list content from api

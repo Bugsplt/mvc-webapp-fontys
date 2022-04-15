@@ -2,9 +2,7 @@ C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppLogic\bin\Debug\net5.0\
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppLogic\bin\Debug\net5.0\WebAppLogic.dll
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppLogic\bin\Debug\net5.0\ref\WebAppLogic.dll
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppLogic\bin\Debug\net5.0\WebAppLogic.pdb
-C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppLogic\bin\Debug\net5.0\WebAppDAL.dll
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppLogic\bin\Debug\net5.0\WebAppInterface.dll
-C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppLogic\bin\Debug\net5.0\WebAppDAL.pdb
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppLogic\bin\Debug\net5.0\WebAppInterface.pdb
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppLogic\obj\Debug\net5.0\WebAppLogic.csprojAssemblyReference.cache
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppLogic\obj\Debug\net5.0\WebAppLogic.GeneratedMSBuildEditorConfig.editorconfig
@@ -15,3 +13,5 @@ C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppLogic\obj\Debug\net5.0\
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppLogic\obj\Debug\net5.0\WebAppLogic.dll
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppLogic\obj\Debug\net5.0\ref\WebAppLogic.dll
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppLogic\obj\Debug\net5.0\WebAppLogic.pdb
+C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppLogic\bin\Debug\net5.0\WebAppDAL.dll
+C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppLogic\bin\Debug\net5.0\WebAppDAL.pdb

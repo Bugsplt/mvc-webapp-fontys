@@ -1,5 +1,4 @@
-﻿
-@using LogicLayer
+﻿@model ContactView
 
 @{
     ViewData["Title"] = "Dashboard";
@@ -20,10 +19,11 @@
         <div style="display: flex">
         <div style="left:0; position: relative; width: 20%">
             <label>Filters:</label>
-            <select>
-                <option>premium</option>
-                <option>free</option>
-                <option>prospects</option>
+            <select onchange="@Model.Dropdown = this.value">
+                <option>@(Model.Dropdown = Dropdown.All)</option>
+                <option>@(Model.Dropdown = Dropdown.Premium)</option>
+                <option>@(Model.Dropdown = Dropdown.Free)</option>
+                <option>@(Model.Dropdown = Dropdown.Prospects)</option>
             </select>
         </div>
             <div style="position: relative; width: 80%">
@@ -32,32 +32,85 @@
                 </form>
             </div>
               </div>
-          <select name="credit_card" style="height: 70vh; width: 90%" size="100">
-          @foreach (var customer in Toolbox.CustomerContainer.GetCustomers())
-          {
-              <option value="@customer">
-                  <collumn>@customer.FirstName</collumn>
-                  <collumn>@customer.Email</collumn>
-                  <collumn>@customer.PhoneNr</collumn>
-              </option>
-          }
-          </select>
+        <select name="credit_card" style="height: 70vh; width: 90%;" size="100" onchange="showCustomerDetails(this.value)">
+            @{
+                // //todo implement in blazor
+                // switch (Model.Dropdown)
+                // {    
+                //     case Dropdown.All:
+                string jsonString;
+                        foreach (var customer in Model.PremiumCustomers)
+                        {
+                            {
+                                jsonString = "{\"name\":\"" + @customer.Name + "\",\"phone\":\"" + customer.PhoneNr + "\", \"email\":\"" + customer.Email + "\",\"id\":\"" + customer.Id + "\"}";
+                            }
+                            //todo fix sizing in blazor
+                            <option value="@jsonString" style="display: flex" ondblclick="openCustomer(this.value)">
+                                <div style="width: 33%">@customer.Name</div>
+                                <div style="width: 33%">@customer.Email</div>
+                                <div style="width: 33%">@customer.PhoneNr</div>
+                            </option>
+                        }
+                        foreach (var customer in Model.FreeCustomers)
+                        {
+                            {
+                                jsonString = "{\"name\":\"" + @customer.Name + "\",\"phone\":\"" + customer.PhoneNr + "\", \"email\":\"" + customer.Email + "\",\"id\":\"" + customer.Id + "\"}";
+                            }
+                            <option value="@jsonString" style="display: flex" ondblclick="openCustomer(this.value)">
+                                <div style="width: 33%">@customer.Name</div>
+                                <div style="width: 33%">@customer.Email</div>
+                                <div style="width: 33%">@customer.PhoneNr</div>
+                            </option>
+                        }
+                        foreach (var customer in Model.Prospects)
+                        {
+                            {
+                                jsonString = "{\"name\":\"" + @customer.Name + "\",\"phone\":\"" + customer.PhoneNr + "\", \"email\":\"" + customer.Email + "\",\"id\":\"" + customer.Id + "\"}";
+                            }
+                            <option value="@jsonString" style="display: flex" ondblclick="openCustomer(this.value)">
+                                <div style="width: 33%">@customer.Name</div>
+                                <div style="width: 33%">@customer.Email</div>
+                                <div style="width: 33%">@customer.PhoneNr</div>
+                            </option>
+                        }
+                    //     break;
+                    // case Dropdown.Premium:
+                    //     foreach (var customer in Model.PremiumCustomers)
+                    //     {
+                    //         <option value="@customer">
+                    //             <collumn>@customer.Name</collumn>
+                    //             <collumn>@customer.Email</collumn>
+                    //             <collumn>@customer.PhoneNr</collumn>
+                    //         </option>
+                    //     }
+                    //     break;
+                    // case Dropdown.Free:
+                    //     foreach (var customer in Model.FreeCustomers)
+                    //     {
+                    //         <option value="@customer">
+                    //             <collumn>@customer.Name</collumn>
+                    //             <collumn>@customer.Email</collumn>
+                    //             <collumn>@customer.PhoneNr</collumn>
+                    //         </option>
+                    //     }
+                    //     break;
+                    // case Dropdown.Prospects:
+                    //     foreach (var prospect in Model.Prospects)
+                    //     {
+                    //         <option value="@prospect">
+                    //             <collumn>@prospect.Name</collumn>
+                    //             <collumn>@prospect.Email</collumn>
+                    //             <collumn>@prospect.PhoneNr</collumn>
+                    //         </option>
+                    //     }
+                    //     break;
+                //}
+            }
+        </select>
           
     </div>
     <div style="right:0; position: relative; width: 30%">
-        <p>
-            some customer details <br>
-            some customer details <br>
-            some customer details <br>
-            some customer details <br>
-            some customer details <br>
-            some customer details <br>
-            some customer details <br>
-            some customer details <br>
-            some customer details <br>
-            some customer details <br>
-            some customer details <br>
-            some customer details <br>
+        <p id="customerdetails" style="white-space: pre-line">
         </p>
     </div>
 </screen>

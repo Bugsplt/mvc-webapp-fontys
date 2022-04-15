@@ -49,11 +49,9 @@ C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\bin\Debug\net5.0\runti
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\bin\Debug\net5.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\bin\Debug\net5.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\bin\Debug\net5.0\runtimes\win-x86\native\e_sqlite3.dll
-C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\bin\Debug\net5.0\WebAppDAL.dll
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\bin\Debug\net5.0\WebAppInterface.dll
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\bin\Debug\net5.0\WebAppLogic.dll
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\bin\Debug\net5.0\WebAppLogic.pdb
-C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\bin\Debug\net5.0\WebAppDAL.pdb
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\bin\Debug\net5.0\WebAppInterface.pdb
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\obj\Debug\net5.0\WebApp.csprojAssemblyReference.cache
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\obj\Debug\net5.0\WebApp.GeneratedMSBuildEditorConfig.editorconfig
@@ -89,3 +87,5 @@ C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\obj\Debug\net5.0\WebAp
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\obj\Debug\net5.0\ref\WebApp.dll
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\obj\Debug\net5.0\WebApp.pdb
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\obj\Debug\net5.0\WebApp.genruntimeconfig.cache
+C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\bin\Debug\net5.0\WebAppDAL.dll
+C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\bin\Debug\net5.0\WebAppDAL.pdb

@@ -783,6 +783,10 @@
       },
       "System.Memory/4.5.3": {},
       "WebAppDAL/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "WebAppInterface": "1.0.0"
+        },
         "runtime": {
           "WebAppDAL.dll": {}
         },

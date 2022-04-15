@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using LogicLayer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -31,12 +27,23 @@ namespace WebAppProftS2.Controllers
         
         public IActionResult Dashboard()
         {
-            return View(Toolbox.CustomerContainer);
-        }  
+            Toolbox.CustomerViewHelper.LoadCustomerView();
+            var model = new ContactView(Toolbox.CustomerContainer.GetCustomers(), Toolbox.ProspectContainer.GetProspects());
+            return View(model);
+        }
         
-        public IActionResult CustomerView()
+        [HttpGet]
+        public IActionResult CustomerView(string id)
         {
-            return View();
+            var token = Toolbox.CustomerDetailsHelper.LoadCustomerDetailView(id);
+            var model = token.ToObject<CustomerDetails>();
+            return View(model);
+        }
+        
+        [HttpPost]
+        public void CustomerView(CustomerDetails details)
+        {
+            Toolbox.CustomerDetailsHelper.UpdateCustomerDetails(Toolbox.ToDto(details.Name,details.Activity,details.Searches,details.CatName,details.Country,details.Phone,details.Email,details.Status.ToString(),details.Notes,details.Tasks,details.Orders,details.Tips,details.FbAdId,details.FbPostId,details.Id,details.InstaAdId,details.InstaPostId,details.Language));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

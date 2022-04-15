@@ -10,11 +10,26 @@ namespace LogicLayer.Classes
           public string Country { get; private set; }
           public string PhoneNr { get; private set; }
           public string Email { get; private set; }
+          public string Id { get; private set; }
 
-          public int _id { get; }
+          public string Status;
+          
           private List<Search> _searches = new();
           private List<Activity> _activities = new();
 
+          public Customer(string firstName, string email, string phoneNr, string id)
+          {
+               FirstName = firstName;
+               Email = email;
+               PhoneNr = phoneNr;
+               Id = id;
+          }
+
+          public Customer()
+          {
+            
+          }
+          
           public IReadOnlyList<Search> GetSearches()
           {
                return _searches;

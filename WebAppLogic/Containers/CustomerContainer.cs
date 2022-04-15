@@ -27,9 +27,9 @@ namespace LogicLayer.Containers
             Customers.Clear();
         }
 
-        public void Load()
+        public void SetCustomers(List<Customer> customers)
         {
-            //todo get list content from api
+            Customers = customers;
         }
     }
 }

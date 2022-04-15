@@ -5,9 +5,4 @@
         <RootNamespace>InterfaceLayer</RootNamespace>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="DTO" />
-      <Folder Include="Interface" />
-    </ItemGroup>
-
 </Project>

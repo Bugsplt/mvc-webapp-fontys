@@ -16,9 +16,22 @@ namespace LogicLayer.Classes
         public string PostMssg { get; private set; }
         public float Lat { get; private set; }
         public float Lng { get; private set; }
+        public string ProspectNr { get; private set; }
 
-        private string _prospectNr;
         private List<Activity> _activities;
+        
+        public Prospect(string catname, string email, string phoneNr, string prospectNr)
+        {
+            CatName = catname;
+            Email = email;
+            PhoneNr = phoneNr;
+            ProspectNr = prospectNr;
+        }
+
+        public Prospect()
+        {
+            
+        }
 
         public void SetCatName(string catName)
         {
@@ -99,5 +112,6 @@ namespace LogicLayer.Classes
         {
             _activities.Clear();
         }
+        
     }
 }
