@@ -1,4 +1,5 @@
 ﻿using System;
+using InterfaceLayer.DTO;
 
 namespace LogicLayer.Classes
 {
@@ -30,6 +31,31 @@ namespace LogicLayer.Classes
         public void SetScore(int score)
         {
             Score = score;
+        }
+
+        public Feedback(){}
+
+        public Feedback(FeedbackDTO dto)
+        {
+            FeedbackDate = dto.FeedbackDate;
+            RatingDate = dto.RatingDate;
+            Content = dto.Content;
+            Score = dto.Score;
+            _feedbackId = dto._feedbackId;
+            _ratingId = dto._ratingId;
+        }
+        
+        public FeedbackDTO ToDto()
+        {
+            return new()
+            {
+                FeedbackDate = FeedbackDate,
+                RatingDate = RatingDate,
+                Content = Content,
+                Score = Score,
+                _feedbackId = _feedbackId,
+                _ratingId = _ratingId
+            };
         }
     }
 }

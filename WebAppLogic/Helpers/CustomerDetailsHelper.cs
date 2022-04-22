@@ -17,15 +17,13 @@ namespace LogicLayer.Helpers
 
         public JToken LoadCustomerDetailView(string id)
         {
-            //todo fill in logic classes as well
             var (body, url) = Toolbox.GetCustomerDetailView(id);
             var json = _apiClient.Post(body,url); 
             return JToken.Parse(json);
         }
 
-        public void UpdateCustomerDetails(CustomerDetailDTO detailDto)
+        public void UpdateCustomerDetails(CustomerDTO detailDto)
         {
-            //todo update logic classes as well
             var (body, url) = Toolbox.UpdateCustomerDetails(detailDto);
             _apiClient.Post(body,url); 
         }

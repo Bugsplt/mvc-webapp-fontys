@@ -1,4 +1,5 @@
 ﻿using System;
+using InterfaceLayer.DTO;
 using LogicLayer.Enums;
 
 namespace LogicLayer.Classes
@@ -19,6 +20,21 @@ namespace LogicLayer.Classes
         public void SetDate(DateTime date)
         {
             Date = date;
+        }
+
+        public MapData(){}
+        
+        public MapData
+        
+        public MapDataDTO ToDto()
+        {
+            return new()
+            {
+                CatStatus = (InterfaceLayer.Enums.CatStatus) CatStatus,
+                Date = Date,
+                _id = _id,
+                _searchNr = _searchNr
+            };
         }
     }
 }

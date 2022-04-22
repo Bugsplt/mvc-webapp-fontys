@@ -1,4 +1,5 @@
-﻿using LogicLayer.Enums;
+﻿using InterfaceLayer.DTO;
+using LogicLayer.Enums;
 
 namespace LogicLayer.Classes
 {
@@ -47,6 +48,21 @@ namespace LogicLayer.Classes
         public void SetReach(int reach)
         {
             Reach = reach;
+        }
+
+        public ProductDTO ToDto()
+        {
+            return new()
+            {
+                Type = (InterfaceLayer.Enums.ProductType) Type,
+                Price = Price,
+                _id = _id,
+                DailyBudget = DailyBudget,
+                Discount = Discount,
+                ExpProfit = ExpProfit,
+                Radius = Radius,
+                Reach = Reach
+            };
         }
     }
 }

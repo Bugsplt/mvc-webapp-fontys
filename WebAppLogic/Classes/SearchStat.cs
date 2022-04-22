@@ -1,4 +1,5 @@
 ﻿using System;
+using InterfaceLayer.DTO;
 
 namespace LogicLayer.Classes
 {
@@ -30,6 +31,19 @@ namespace LogicLayer.Classes
         public void SetLikes(int likes)
         {
             Likes = likes;
+        }
+
+        public SearchStatDTO ToDto()
+        {
+            return new()
+            {
+                Date = Date,
+                Impressions = Impressions,
+                Interactions = Interactions,
+                Likes = Likes,
+                _id = _id,
+                _searchNr = _searchNr
+            };
         }
     }
 }

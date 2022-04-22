@@ -1,4 +1,6 @@
-﻿namespace LogicLayer.Classes
+﻿using InterfaceLayer.DTO;
+
+namespace LogicLayer.Classes
 {
     public class ProductOrder
     {
@@ -15,6 +17,16 @@
         public void SetAmount(int amount)
         {
             Amount = amount;
+        }
+
+        public ProductOrderDTO ToDto()
+        {
+            return new ProductOrderDTO()
+            {
+                Product = Product.ToDto(),
+                Amount = Amount,
+                _orderId = _orderId
+            };
         }
     }
 }

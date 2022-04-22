@@ -1,4 +1,5 @@
 ﻿using System;
+using InterfaceLayer.DTO;
 
 namespace LogicLayer.Classes
 {
@@ -23,6 +24,27 @@ namespace LogicLayer.Classes
         public void SetDescription(string description)
         {
             Description = description;
+        }
+
+        public Activity(){}
+
+        public Activity(ActivityDTO dto)
+        {
+            Date = dto.Date;
+            Type = dto.Type;
+            Description = dto.Description;
+            _id = dto._id;
+        }
+        
+        public ActivityDTO ToDto()
+        {
+            return new()
+            {
+                Date = Date,
+                _id = _id,
+                Description = Description,
+                Type = Type
+            };
         }
     }
 }

@@ -12,13 +12,13 @@ namespace WebAppDAL
                 "https://server.kattenradar.nl/get-dashboard-overview");
         }
 
-        public (string, string) GetCustomerDetailView(string id)
+        public (string, string) GetCustomerDetails(string id)
         {
             return ("{\"key\":\"2365fn348q6qm239781fhn873ub238u\",\"id\":\"" + id + "\"}",
                 "https://server.kattenradar.nl/get-customer-detail-view");
         }
         
-        public (string, string) UpdateCustomerDetails(CustomerDetailDTO detailDto)
+        public (string, string) UpdateCustomerDetails(CustomerDTO detailDto)
         {
             var jsonString = JsonSerializer.Serialize(detailDto);
             var reqBody = "{\"key\":\"2yq3yf7iq2v78qhwfn6gqw3i7rfhnwef6q7ihf3kyqe\",\"id\":\"" + detailDto.Id +

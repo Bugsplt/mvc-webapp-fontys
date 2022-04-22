@@ -1,4 +1,6 @@
-﻿namespace LogicLayer.Classes
+﻿using InterfaceLayer.DTO;
+
+namespace LogicLayer.Classes
 {
     public class Sighting
     {
@@ -27,6 +29,18 @@
         public void SetLng(float lng)
         {
             Lng = lng;
+        }
+
+        public SightingDTO ToDto()
+        {
+            return new()
+            {
+                City = City,
+                Street = Street,
+                Lat = Lat,
+                Lng = Lng,
+                _id = _id
+            };
         }
     }
 }

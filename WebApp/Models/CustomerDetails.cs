@@ -64,9 +64,7 @@ namespace WebAppProftS2.Models
         }
 
         public CustomerDetails()
-        {
-            
-        }
+        { }
     };
 
     public enum CustomerStatus

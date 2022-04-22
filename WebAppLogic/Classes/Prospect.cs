@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using InterfaceLayer.DTO;
 
 namespace LogicLayer.Classes
 {
@@ -111,6 +113,33 @@ namespace LogicLayer.Classes
         public void Clear()
         {
             _activities.Clear();
+        }
+
+        public ProspectDTO ToDto()
+        {
+            var activityDtos = new List<ActivityDTO>();
+            foreach (var activity in _activities)
+            {
+                activityDtos.Add(activity.ToDto());
+            }
+
+            return new ProspectDTO()
+            {
+                CatName = CatName,
+                _activities = activityDtos,
+                CatImg = CatImg,
+                City = City,
+                Country = Country,
+                Email = Email,
+                Language = Language,
+                Lat = Lat,
+                Lng = Lng,
+                MockupImg = MockupImg,
+                PostMssg = PostMssg,
+                ProspectNr = ProspectNr,
+                PhoneNr = PhoneNr,
+                Street = Street
+            };
         }
         
     }

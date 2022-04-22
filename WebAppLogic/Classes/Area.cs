@@ -1,4 +1,6 @@
-﻿namespace LogicLayer.Classes
+﻿using InterfaceLayer.DTO;
+
+namespace LogicLayer.Classes
 {
     public class Area
     {
@@ -39,6 +41,33 @@
         public void SetIgAdId(string igAdId)
         {
             IgAdId = igAdId;
+        }
+
+        public Area(){}
+
+        public Area(AreaDTO dto)
+        {
+            Lat = dto.Lat;
+            Lng = dto.Lng;
+            City = dto.City;
+            Street = dto.Street;
+            FbAdId = dto.FbAdId;
+            IgAdId = dto.IgAdId;
+            _id = dto._id;
+        }
+        
+        public AreaDTO ToDto()
+        {
+            return new()
+            {
+                Lat = Lat,
+                Lng = Lng,
+                City = City,
+                Street = Street,
+                FbAdId = FbAdId,
+                IgAdId = IgAdId,
+                _id = _id
+            };
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using InterfaceLayer.DTO;
 using LogicLayer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -43,7 +44,7 @@ namespace WebAppProftS2.Controllers
         [HttpPost]
         public void CustomerView(CustomerDetails details)
         {
-            Toolbox.CustomerDetailsHelper.UpdateCustomerDetails(Toolbox.ToDto(details.Name,details.Activity,details.Searches,details.CatName,details.Country,details.Phone,details.Email,details.Status.ToString(),details.Notes,details.Tasks,details.Orders,details.Tips,details.FbAdId,details.FbPostId,details.Id,details.InstaAdId,details.InstaPostId,details.Language));
+            Toolbox.CustomerDetailsHelper.UpdateCustomerDetails(new CustomerDTO());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using InterfaceLayer.DTO;
 using LogicLayer.Enums;
 
 namespace LogicLayer.Classes
@@ -143,5 +144,47 @@ namespace LogicLayer.Classes
             _searchStats.Clear();
         }
 
+        public SearchDTO ToDto()
+        {
+            List<TipDTO> tipDtos = new List<TipDTO>();
+            foreach (var tip in _tips)
+            {
+                tipDtos.Add(tip.ToDto());
+            }
+
+            List<AreaDTO> areaDtos = new List<AreaDTO>();
+            foreach (var area in _areas)
+            {
+                areaDtos.Add(area.ToDto());
+            }
+            
+            List<SearchStatDTO> searchStatDtos = new List<SearchStatDTO>();
+            foreach (var searchStat in _searchStats)
+            {
+                searchStatDtos.Add(searchStat.ToDto());
+            }
+
+            return new SearchDTO()
+            {
+                Feedback = Feedback.ToDto(),
+                CatStatus = (InterfaceLayer.Enums.CatStatus) CatStatus,
+                AdStatus = (InterfaceLayer.Enums.AdStatus) AdStatus,
+                CatName = CatName,
+                PostMssg = PostMssg,
+                AdCampId = AdCampId,
+                Tag = Tag,
+                FbPostId = FbPostId,
+                IgPostId = IgPostId,
+                IgPostUrl = IgPostUrl,
+                CatImg = CatImg,
+                MockupImg = MockupImg,
+                PostImg = PostImg,
+                AdSpent = AdSpent,
+                _searchNr = _searchNr,
+                _tips = tipDtos,
+                _areas = areaDtos,
+                _searchStats = searchStatDtos,
+            };
+        }
     }
 }

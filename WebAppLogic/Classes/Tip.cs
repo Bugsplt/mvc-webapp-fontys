@@ -1,4 +1,5 @@
 ﻿using System;
+using InterfaceLayer.DTO;
 using LogicLayer.Enums;
 
 namespace LogicLayer.Classes
@@ -37,6 +38,20 @@ namespace LogicLayer.Classes
         public void SetContent(string content)
         {
             Content = content;
+        }
+
+        public TipDTO ToDto()
+        {
+            return new()
+            {
+                Sighting = Sighting.ToDto(),
+                Platform = (InterfaceLayer.Enums.Platform) Platform,
+                SightingDate = SightingDate,
+                Date = Date,
+                Contact = Contact,
+                Content = Content,
+                _id = _id
+            };
         }
     }
 }

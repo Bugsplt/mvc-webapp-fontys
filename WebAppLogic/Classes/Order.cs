@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using InterfaceLayer.DTO;
 using LogicLayer.Enums;
 
 namespace LogicLayer.Classes
@@ -46,6 +47,24 @@ namespace LogicLayer.Classes
         public void Refund()
         {
             PaymentStatus = PaymentStatus.Refunded;
+        }
+
+        public OrderDTO ToDto()
+        {
+            var productOrderDtos = new List<ProductOrderDTO>();
+            foreach (var productOrder in _productOrders)
+            {
+                productOrderDtos.Add(productOrder.ToDto());
+            }
+
+            return new OrderDTO()
+            {
+                PaymentStatus = (InterfaceLayer.Enums.PaymentStatus) PaymentStatus,
+                Date = Date,
+                MollieId = MollieId,
+                _id = _id,
+                _productOrders = productOrderDtos
+            };
         }
     }
 }

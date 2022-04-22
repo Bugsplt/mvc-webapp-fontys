@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using InterfaceLayer.DTO;
+using Newtonsoft.Json.Linq;
+using WebAppDAL;
 
 namespace LogicLayer.Classes
 {
@@ -17,12 +20,31 @@ namespace LogicLayer.Classes
           private List<Search> _searches = new();
           private List<Activity> _activities = new();
 
-          public Customer(string firstName, string email, string phoneNr, string id)
+          public Customer(CustomerDTO dto)
           {
-               FirstName = firstName;
-               Email = email;
-               PhoneNr = phoneNr;
-               Id = id;
+               var activities = new List<Activity>();
+               foreach (var activity in dto._activities)
+               {
+                    activities.Add(new Activity(activity));
+               }
+
+               var searches = new List<Search>();
+               foreach (var search in dto._searches)
+               {
+                    searches.Add(new Search(search));
+               }
+               
+               LastName = dto.LastName;
+               _activities = activities;
+               FirstName = dto.FirstName;
+               _searches = searches;
+               Country = dto.Country;
+               Email = dto.Email;
+               Id = dto.Id;
+               Language = dto.Language;
+               PhoneNr = dto.PhoneNr;
+               Status = dto.Status;
+
           }
 
           public Customer()
@@ -90,16 +112,40 @@ namespace LogicLayer.Classes
                _activities.Remove(activity);
           }
 
-          public void Load()
-          {
-               //todo get this customers searches from api and set them to _searches
-               //todo get this customers activity from api and set them to _activities
-          }
-
           public void Clear()
           {
                _searches.Clear();
                _activities.Clear();
+          }
+
+          public CustomerDTO ToDto()
+          {
+               var activityDtos = new List<ActivityDTO>();
+               foreach (var activity in _activities)
+               {
+                    activityDtos.Add(activity.ToDto());
+               }
+
+               var searchDtos = new List<SearchDTO>();
+               foreach (var search in _searches)
+               {
+                    searchDtos.Add(search.ToDto());
+               }
+
+
+               return new CustomerDTO()
+               {
+                    LastName = LastName,
+                    _activities = activityDtos,
+                    FirstName = FirstName,
+                    _searches = searchDtos,
+                    Country = Country,
+                    Email = Email,
+                    Id = Id,
+                    Language = Language,
+                    PhoneNr = PhoneNr,
+                    Status = Status
+               };
           }
 
      }
