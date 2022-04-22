@@ -50,6 +50,20 @@ namespace LogicLayer.Classes
             Reach = reach;
         }
 
+        public Product(){}
+
+        public Product(ProductDTO dto)
+        {
+            Type = (ProductType) dto.Type;
+            Price = dto.Price;
+            _id = dto._id;
+            DailyBudget = dto.DailyBudget;
+            Discount = dto.Discount;
+            ExpProfit = dto.ExpProfit;
+            Radius = dto.Radius;
+            Reach = dto.Reach;
+        }
+        
         public ProductDTO ToDto()
         {
             return new()

@@ -21,19 +21,6 @@ namespace LogicLayer.Classes
         public string ProspectNr { get; private set; }
 
         private List<Activity> _activities;
-        
-        public Prospect(string catname, string email, string phoneNr, string prospectNr)
-        {
-            CatName = catname;
-            Email = email;
-            PhoneNr = phoneNr;
-            ProspectNr = prospectNr;
-        }
-
-        public Prospect()
-        {
-            
-        }
 
         public void SetCatName(string catName)
         {
@@ -115,6 +102,40 @@ namespace LogicLayer.Classes
             _activities.Clear();
         }
 
+        public Prospect(string catname, string email, string phoneNr, string prospectNr)
+        {
+            CatName = catname;
+            Email = email;
+            PhoneNr = phoneNr;
+            ProspectNr = prospectNr;
+        }
+        
+        public Prospect(){}
+
+        public Prospect(ProspectDTO dto)
+        {
+            var activities = new List<Activity>();
+            foreach (var activity in dto._activities)
+            {
+                activities.Add(new Activity(activity));
+            }
+
+            CatName = dto.CatName;
+            _activities = activities;
+            CatImg = dto.CatImg;
+            City = dto.City;
+            Country = dto.Country;
+            Email = dto.Email;
+            Language = dto.Language;
+            Lat = dto.Lat;
+            Lng = dto.Lng;
+            MockupImg = dto.MockupImg;
+            PostMssg = dto.PostMssg;
+            ProspectNr = dto.ProspectNr;
+            PhoneNr = dto.PhoneNr;
+            Street = dto.Street;
+        }
+        
         public ProspectDTO ToDto()
         {
             var activityDtos = new List<ActivityDTO>();

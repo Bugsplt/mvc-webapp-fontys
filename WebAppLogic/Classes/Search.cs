@@ -148,41 +148,59 @@ namespace LogicLayer.Classes
 
         public Search(SearchDTO dto)
         {
+            var tips = new List<Tip>();
+            foreach (var tip in dto._tips)
+            {
+                tips.Add(new Tip(tip));
+            }
+
+            var areas = new List<Area>();
+            foreach (var area in dto._areas)
+            {
+                areas.Add(new Area(area));
+            }
+
+            var searchStats = new List<SearchStat>();
+            foreach (var searchStat in dto._searchStats)
+            {
+                searchStats.Add(new SearchStat(searchStat));
+            }
+            
             Feedback = new Feedback(dto.Feedback);
             CatStatus = (CatStatus) dto.CatStatus;
             AdStatus = (AdStatus) dto.AdStatus;
-            CatName = dto.CatName,
-            PostMssg = dto.PostMssg,
-            AdCampId = dto.AdCampId,
-            Tag = dto.Tag,
-            FbPostId = dto.FbPostId,
-            IgPostId = dto.IgPostId,
-            IgPostUrl = dto.IgPostUrl,
-            CatImg = dto.CatImg,
-            MockupImg = dto.MockupImg,
-            PostImg = dto.PostImg,
-            AdSpent = dto.AdSpent,
-            _searchNr = dto._searchNr,
-            _tips = tipDtos, //todo do it yourself :-)
-            _areas = areaDtos,
-            _searchStats = searchStatDtos,
+            CatName = dto.CatName;
+            PostMssg = dto.PostMssg;
+            AdCampId = dto.AdCampId;
+            Tag = dto.Tag;
+            FbPostId = dto.FbPostId;
+            IgPostId = dto.IgPostId;
+            IgPostUrl = dto.IgPostUrl;
+            CatImg = dto.CatImg;
+            MockupImg = dto.MockupImg;
+            PostImg = dto.PostImg;
+            AdSpent = dto.AdSpent;
+            _searchNr = dto._searchNr;
+            _tips = tips;
+            _areas = areas;
+            _searchStats = searchStats;
         }
 
         public SearchDTO ToDto()
         {
-            List<TipDTO> tipDtos = new List<TipDTO>();
+            var tipDtos = new List<TipDTO>();
             foreach (var tip in _tips)
             {
                 tipDtos.Add(tip.ToDto());
             }
 
-            List<AreaDTO> areaDtos = new List<AreaDTO>();
+            var areaDtos = new List<AreaDTO>();
             foreach (var area in _areas)
             {
                 areaDtos.Add(area.ToDto());
             }
 
-            List<SearchStatDTO> searchStatDtos = new List<SearchStatDTO>();
+            var searchStatDtos = new List<SearchStatDTO>();
             foreach (var searchStat in _searchStats)
             {
                 searchStatDtos.Add(searchStat.ToDto());

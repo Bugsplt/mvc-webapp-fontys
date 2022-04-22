@@ -49,6 +49,23 @@ namespace LogicLayer.Classes
             PaymentStatus = PaymentStatus.Refunded;
         }
 
+        public Order(){}
+
+        public Order(OrderDTO dto)
+        {
+            var productOrders = new List<ProductOrder>();
+            foreach (var productOrder in dto._productOrders)
+            {
+                productOrders.Add(new(productOrder));
+            }
+
+            PaymentStatus = (PaymentStatus) dto.PaymentStatus;
+            Date = dto.Date;
+            MollieId = dto.MollieId;
+            _id = dto._id;
+            _productOrders = productOrders;
+        }
+        
         public OrderDTO ToDto()
         {
             var productOrderDtos = new List<ProductOrderDTO>();

@@ -19,9 +19,18 @@ namespace LogicLayer.Classes
             Amount = amount;
         }
 
+        public ProductOrder(){}
+
+        public ProductOrder(ProductOrderDTO dto)
+        {
+            Product = new Product(dto.Product);
+            Amount = dto.Amount;
+            _orderId = dto._orderId;
+        }
+        
         public ProductOrderDTO ToDto()
         {
-            return new ProductOrderDTO()
+            return new()
             {
                 Product = Product.ToDto(),
                 Amount = Amount,

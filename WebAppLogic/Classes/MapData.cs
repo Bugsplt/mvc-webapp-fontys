@@ -23,8 +23,14 @@ namespace LogicLayer.Classes
         }
 
         public MapData(){}
-        
-        public MapData
+
+        public MapData(MapDataDTO dto)
+        {
+            CatStatus = (CatStatus) dto.CatStatus;
+            Date = dto.Date;
+            _id = dto._id;
+            _searchNr = dto._searchNr;
+        }
         
         public MapDataDTO ToDto()
         {
