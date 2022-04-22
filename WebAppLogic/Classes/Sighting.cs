@@ -30,7 +30,17 @@ namespace LogicLayer.Classes
         {
             Lng = lng;
         }
+        
+        public Sighting(){}
 
+        public Sighting(SightingDTO dto)
+        {
+            City = dto.City;
+            Street = dto.Street;
+            Lat = dto.Lat;
+            Lng = dto.Lng;
+            _id = dto._id;
+        }
         public SightingDTO ToDto()
         {
             return new()

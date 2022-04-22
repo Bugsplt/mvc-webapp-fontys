@@ -40,6 +40,19 @@ namespace LogicLayer.Classes
             Content = content;
         }
 
+        public Tip(){}
+        
+        public Tip(TipDTO dto)
+        {
+            Sighting = new Sighting(dto.Sighting);
+            Platform = (Platform) dto.Platform;
+            SightingDate = dto.SightingDate;
+            Date = dto.Date;
+            Contact = dto.Contact;
+            Content = dto.Content;
+            _id = dto._id;
+        }
+        
         public TipDTO ToDto()
         {
             return new()

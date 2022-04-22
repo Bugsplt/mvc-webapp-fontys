@@ -143,6 +143,30 @@ namespace LogicLayer.Classes
             _areas.Clear();
             _searchStats.Clear();
         }
+        
+        public Search(){}
+
+        public Search(SearchDTO dto)
+        {
+            Feedback = new Feedback(dto.Feedback);
+            CatStatus = (CatStatus) dto.CatStatus;
+            AdStatus = (AdStatus) dto.AdStatus;
+            CatName = dto.CatName,
+            PostMssg = dto.PostMssg,
+            AdCampId = dto.AdCampId,
+            Tag = dto.Tag,
+            FbPostId = dto.FbPostId,
+            IgPostId = dto.IgPostId,
+            IgPostUrl = dto.IgPostUrl,
+            CatImg = dto.CatImg,
+            MockupImg = dto.MockupImg,
+            PostImg = dto.PostImg,
+            AdSpent = dto.AdSpent,
+            _searchNr = dto._searchNr,
+            _tips = tipDtos, //todo do it yourself :-)
+            _areas = areaDtos,
+            _searchStats = searchStatDtos,
+        }
 
         public SearchDTO ToDto()
         {
@@ -157,7 +181,7 @@ namespace LogicLayer.Classes
             {
                 areaDtos.Add(area.ToDto());
             }
-            
+
             List<SearchStatDTO> searchStatDtos = new List<SearchStatDTO>();
             foreach (var searchStat in _searchStats)
             {

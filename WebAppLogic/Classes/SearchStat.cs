@@ -32,6 +32,18 @@ namespace LogicLayer.Classes
         {
             Likes = likes;
         }
+        
+        public SearchStat(){}
+
+        public SearchStat(SearchStatDTO dto)
+        {
+            Date = dto.Date;
+            Impressions = dto.Impressions;
+            Interactions = dto.Interactions;
+            Likes = dto.Likes;
+            _id = dto._id;
+            _searchNr = dto._searchNr;
+        }
 
         public SearchStatDTO ToDto()
         {
