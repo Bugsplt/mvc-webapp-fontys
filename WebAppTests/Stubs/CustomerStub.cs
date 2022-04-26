@@ -9,8 +9,11 @@ namespace WebAppProftS2Tests.Stubs
         public List<CustomerDTO> Customers;
         
 
-        public CustomerStub() //TODO Add search and activity
+        public CustomerStub()
         {
+            SearchStub searchStub = new();
+            ActivityStub activityStub = new();
+            
             Customers = new List<CustomerDTO>
             {
                 new()
@@ -22,7 +25,9 @@ namespace WebAppProftS2Tests.Stubs
                     PhoneNr = "PhoneNr1",
                     Email = "Email1",
                     Status = "Status1",
-                    Id = "1"
+                    Id = "1",
+                    _searches = new List<SearchDTO>{searchStub.Searches[0]},
+                    _activities = new List<ActivityDTO>{activityStub.Activities[0]}
                 },
                 new()
                 {
@@ -33,7 +38,9 @@ namespace WebAppProftS2Tests.Stubs
                     PhoneNr = "PhoneNr2",
                     Email = "Email2",
                     Status = "Status2",
-                    Id = "2"
+                    Id = "2",
+                    _searches = new List<SearchDTO>{searchStub.Searches[1]},
+                    _activities = new List<ActivityDTO>{activityStub.Activities[1]}
                 },
                 new()
                 {
@@ -44,7 +51,9 @@ namespace WebAppProftS2Tests.Stubs
                     PhoneNr = "PhoneNr3",
                     Email = "Email3",
                     Status = "Status3",
-                    Id = "3"
+                    Id = "3",
+                    _searches = new List<SearchDTO>{searchStub.Searches[2]},
+                    _activities = new List<ActivityDTO>{activityStub.Activities[2]}
                 }
             };
         }
