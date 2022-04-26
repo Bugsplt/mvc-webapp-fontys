@@ -31,7 +31,7 @@ namespace WebAppProftS2Tests.Stubs
                 },
                 new()
                 {
-                    LastName = "LastNam2",
+                    LastName = "LastName2",
                     FirstName = "FirstName2",
                     Language = "Language2",
                     Country = "Country2",
