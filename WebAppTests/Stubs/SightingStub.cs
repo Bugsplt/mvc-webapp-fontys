@@ -9,9 +9,9 @@ namespace WebAppProftS2Tests.Stubs
 
         public SightingStub()
         {
-            Sightings = new()
+            Sightings = new List<SightingDTO>
             {
-                new SightingDTO()
+                new()
                 {
                     _id = 1,
                     City = "City1", 
@@ -19,7 +19,7 @@ namespace WebAppProftS2Tests.Stubs
                     Lat = (float) 52.345,
                     Lng = (float) 5.345
                 },
-                new SightingDTO()
+                new()
                 {
                     _id = 2,
                     City = "City2", 
@@ -27,7 +27,7 @@ namespace WebAppProftS2Tests.Stubs
                     Lat = (float) 53.345,
                     Lng = (float) 6.345
                 },
-                new SightingDTO()
+                new()
                 {
                     _id = 3,
                     City = "City3", 

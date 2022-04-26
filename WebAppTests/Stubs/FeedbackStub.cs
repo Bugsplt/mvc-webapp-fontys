@@ -10,9 +10,9 @@ namespace WebAppProftS2Tests.Stubs
 
         public FeedbackStub()
         {
-            Feedbacks = new()
+            Feedbacks = new List<FeedbackDTO>
             {
-                new FeedbackDTO()
+                new()
                 {
                     FeedbackDate = new DateTime(2022,4,26),
                     _feedbackId = 1,
@@ -21,7 +21,7 @@ namespace WebAppProftS2Tests.Stubs
                     RatingDate = new DateTime(2022,4,26),
                     Score = 1
                 },
-                new FeedbackDTO()
+                new()
                 {
                     FeedbackDate = new DateTime(2022,4,27),
                     _feedbackId = 2,
@@ -30,7 +30,7 @@ namespace WebAppProftS2Tests.Stubs
                     RatingDate = new DateTime(2022,4,27),
                     Score = 2
                 },
-                new FeedbackDTO()
+                new()
                 {
                     FeedbackDate = new DateTime(2022,4,28),
                     _feedbackId = 3,

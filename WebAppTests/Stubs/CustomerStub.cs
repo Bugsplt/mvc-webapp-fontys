@@ -11,9 +11,9 @@ namespace WebAppProftS2Tests.Stubs
 
         public CustomerStub() //TODO Add search and activity
         {
-            Customers = new()
+            Customers = new List<CustomerDTO>
             {
-                new CustomerDTO()
+                new()
                 {
                     LastName = "LastName1",
                     FirstName = "FirstName",
@@ -24,7 +24,7 @@ namespace WebAppProftS2Tests.Stubs
                     Status = "Status1",
                     Id = "1"
                 },
-                new CustomerDTO()
+                new()
                 {
                     LastName = "LastNam2",
                     FirstName = "FirstName2",
@@ -35,7 +35,7 @@ namespace WebAppProftS2Tests.Stubs
                     Status = "Status2",
                     Id = "2"
                 },
-                new CustomerDTO()
+                new()
                 {
                     LastName = "LastName3",
                     FirstName = "FirstName3",
