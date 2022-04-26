@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppTests\\WebAppTests.csproj": {}
+    "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppTests\\WebAppTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppDAL\\WebAppDAL.csproj": {
+    "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppDAL\\WebAppDAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppDAL\\WebAppDAL.csproj",
+        "projectUniqueName": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppDAL\\WebAppDAL.csproj",
         "projectName": "WebAppDAL",
-        "projectPath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppDAL\\WebAppDAL.csproj",
-        "packagesPath": "C:\\Users\\stijn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppDAL\\obj\\",
+        "projectPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppDAL\\WebAppDAL.csproj",
+        "packagesPath": "C:\\Users\\Tom\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppDAL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\stijn\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Tom\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppInterface\\WebAppInterface.csproj": {
-                "projectPath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppInterface\\WebAppInterface.csproj"
+              "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppInterface\\WebAppInterface.csproj": {
+                "projectPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppInterface\\WebAppInterface.csproj"
               }
             }
           }
@@ -68,25 +64,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppInterface\\WebAppInterface.csproj": {
+    "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppInterface\\WebAppInterface.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppInterface\\WebAppInterface.csproj",
+        "projectUniqueName": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppInterface\\WebAppInterface.csproj",
         "projectName": "WebAppInterface",
-        "projectPath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppInterface\\WebAppInterface.csproj",
-        "packagesPath": "C:\\Users\\stijn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppInterface\\obj\\",
+        "projectPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppInterface\\WebAppInterface.csproj",
+        "packagesPath": "C:\\Users\\Tom\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppInterface\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\stijn\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Tom\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -126,25 +118,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppLogic\\WebAppLogic.csproj": {
+    "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppLogic\\WebAppLogic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppLogic\\WebAppLogic.csproj",
+        "projectUniqueName": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppLogic\\WebAppLogic.csproj",
         "projectName": "WebAppLogic",
-        "projectPath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppLogic\\WebAppLogic.csproj",
-        "packagesPath": "C:\\Users\\stijn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppLogic\\obj\\",
+        "projectPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppLogic\\WebAppLogic.csproj",
+        "packagesPath": "C:\\Users\\Tom\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppLogic\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\stijn\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Tom\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -158,11 +146,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppDAL\\WebAppDAL.csproj": {
-                "projectPath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppDAL\\WebAppDAL.csproj"
+              "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppDAL\\WebAppDAL.csproj": {
+                "projectPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppDAL\\WebAppDAL.csproj"
               },
-              "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppInterface\\WebAppInterface.csproj": {
-                "projectPath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppInterface\\WebAppInterface.csproj"
+              "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppInterface\\WebAppInterface.csproj": {
+                "projectPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppInterface\\WebAppInterface.csproj"
               }
             }
           }
@@ -197,25 +185,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppTests\\WebAppTests.csproj": {
+    "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppTests\\WebAppTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppTests\\WebAppTests.csproj",
+        "projectUniqueName": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppTests\\WebAppTests.csproj",
         "projectName": "WebAppTests",
-        "projectPath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppTests\\WebAppTests.csproj",
-        "packagesPath": "C:\\Users\\stijn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppTests\\obj\\",
+        "projectPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppTests\\WebAppTests.csproj",
+        "packagesPath": "C:\\Users\\Tom\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppTests\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\stijn\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Tom\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -229,8 +213,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebApp\\WebApp.csproj": {
-                "projectPath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebApp\\WebApp.csproj"
+              "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebApp\\WebApp.csproj": {
+                "projectPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebApp\\WebApp.csproj"
               }
             }
           }
@@ -280,25 +264,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebApp\\WebApp.csproj": {
+    "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebApp\\WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebApp\\WebApp.csproj",
+        "projectUniqueName": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebApp\\WebApp.csproj",
         "projectName": "WebApp",
-        "projectPath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebApp\\WebApp.csproj",
-        "packagesPath": "C:\\Users\\stijn\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebApp\\obj\\",
+        "projectPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebApp\\WebApp.csproj",
+        "packagesPath": "C:\\Users\\Tom\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebApp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\stijn\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Tom\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -312,8 +292,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppLogic\\WebAppLogic.csproj": {
-                "projectPath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppLogic\\WebAppLogic.csproj"
+              "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppLogic\\WebAppLogic.csproj": {
+                "projectPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppLogic\\WebAppLogic.csproj"
               }
             }
           }
@@ -363,12 +343,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.14, 5.0.14]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -377,7 +351,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -149,24 +149,37 @@ namespace LogicLayer.Classes
         public Search(SearchDTO dto)
         {
             var tips = new List<Tip>();
-            foreach (var tip in dto._tips)
+            if (dto._tips != null)
             {
-                tips.Add(new Tip(tip));
+                foreach (var tip in dto._tips)
+                {
+                    tips.Add(new Tip(tip));
+                }
             }
 
             var areas = new List<Area>();
-            foreach (var area in dto._areas)
+            if (dto._areas != null)
             {
-                areas.Add(new Area(area));
+                foreach (var area in dto._areas)
+                {
+                    areas.Add(new Area(area));
+                }
             }
 
             var searchStats = new List<SearchStat>();
-            foreach (var searchStat in dto._searchStats)
+            if (dto._searchStats != null)
             {
-                searchStats.Add(new SearchStat(searchStat));
+                foreach (var searchStat in dto._searchStats)
+                {
+                    searchStats.Add(new SearchStat(searchStat));
+                }
             }
-            
-            Feedback = new Feedback(dto.Feedback);
+
+            if (dto.Feedback != null)
+            {
+                Feedback = new Feedback(dto.Feedback);
+            }
+
             CatStatus = (CatStatus) dto.CatStatus;
             AdStatus = (AdStatus) dto.AdStatus;
             CatName = dto.CatName;

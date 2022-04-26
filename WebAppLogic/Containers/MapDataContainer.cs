@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
+using InterfaceLayer.Interface;
 using LogicLayer.Classes;
+using WebAppDAL;
 
 namespace LogicLayer.Containers
 {
     public class MapDataContainer
     {
+        private IApiCallManager _apiCallManager;
         public List<MapData> MapDataList = new();
         
         public IReadOnlyList<MapData> GetMapDataList()
@@ -30,6 +33,11 @@ namespace LogicLayer.Containers
         public void Load()
         {
             //todo get list content from api
+        }
+
+        public MapDataContainer(IApiCallManager apiCallManager)
+        {
+            _apiCallManager = apiCallManager;
         }
     }
 }

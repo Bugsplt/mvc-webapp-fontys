@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "owRABoj3CLpxzwzgnNU8Xvx6Z5LCHnY0Ga8houv8WwFWlwQXfY/mKkJePgElJv/yQwNN0jblF5ncHq+DBMRTAA==",
+  "dgSpecHash": "NlmSsoDEvX7YJn3OjF9LeIa2SDos9/rM/yo2QMWutdnUNeBbtQpxL9uD2x1yOUHzS0smZxe4UycYB9ZL7WsLqQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\WebAppDAL\\WebAppDAL.csproj",
+  "projectFilePath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppDAL\\WebAppDAL.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\stijn\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\Tom\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

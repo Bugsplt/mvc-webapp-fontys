@@ -114,14 +114,17 @@ namespace LogicLayer.Classes
 
         public Prospect(ProspectDTO dto)
         {
-            var activities = new List<Activity>();
-            foreach (var activity in dto._activities)
+            if (dto._activities != null)
             {
-                activities.Add(new Activity(activity));
+                var activities = new List<Activity>();
+                foreach (var activity in dto._activities)
+                {
+                    activities.Add(new Activity(activity));
+                }
+                _activities = activities;
             }
 
             CatName = dto.CatName;
-            _activities = activities;
             CatImg = dto.CatImg;
             City = dto.City;
             Country = dto.Country;

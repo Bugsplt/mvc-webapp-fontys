@@ -7,6 +7,7 @@ namespace WebAppProftS2Tests.Classes
     [TestClass]
     public class CustomerTest
     {
+        
         [TestMethod]
         public void TestAddSearch()
         {

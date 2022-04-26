@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ztyzD3ly8nx7aEYlSv7nEh5ya6cqW5P1tf2dfo0OIcS7nHxCKisHOFibGQlrnybHz+cpcC9IZkL7045JnJ+dHw==",
+  "dgSpecHash": "2yRq+OpYW36JMErvA47NBt77xM3qBN9aAS+npXvBioUrWhBnanljCamzz7wn2r8KjOSZF1pVve9S6Wbhhh34IA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\stijn\\RiderProjects\\mvc-webapp-fontys\\Containership\\Containership.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\stijn\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.14\\microsoft.netcore.app.host.win-x64.5.0.14.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\Containership\\Containership.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

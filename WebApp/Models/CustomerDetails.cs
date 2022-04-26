@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using InterfaceLayer.DTO;
 
 namespace WebAppProftS2.Models
 {
@@ -39,28 +40,58 @@ namespace WebAppProftS2.Models
         public string CatName { get; set; }
 
 
-        public CustomerDetails(string id, string name, string email, string status, List<string> notes, List<string> tasks, List<string> orders, List<string> tips,
-            List<string> activity, List<string> searches, string fbAdId, string fbPostId, string instaAdId, string instaPostId, string language, string country, 
-            string phone, string catName)
+        public CustomerDetails(CustomerDTO dto)
         {
-            Id = id;
-            Name = name;
-            Email = email;
-            Status = Enum.Parse<CustomerStatus>(status);
-            Notes = notes;
-            Tasks = tasks;
-            Orders = orders;
-            Tips = tips;
-            Activity = activity;
-            Searches = searches;
-            FbAdId = fbAdId;
-            FbPostId = fbPostId;
-            InstaAdId = instaAdId;
-            InstaPostId = instaPostId;
-            Language = language;
-            Country = country;
-            Phone = phone;
-            CatName = catName;
+            if (dto._activities != null)
+            {
+                var activities = new List<string>();
+                foreach (var dtoActivity in dto._activities)
+                {
+                    activities.Add(dtoActivity.Type);
+                }
+                Activity = activities;
+            }
+
+            Searches = new List<string>();
+            Tips = new List<string>();
+
+            if (dto._searches != null)
+            {
+                foreach (var searchDto in dto._searches)
+                {
+                    CatName = searchDto.CatName;
+                    Searches.Add(searchDto._searchNr);
+                    if (searchDto._tips != null)
+                    {
+                        foreach (var searchDtoTip in searchDto._tips)
+                        {
+                            Tips.Add(searchDtoTip.Content);
+                        }
+                    }
+
+                    FbPostId = searchDto.FbPostId;
+                    InstaPostId = searchDto.IgPostId;
+                    if (searchDto._areas != null)
+                    {
+                        foreach (var areaDto in searchDto._areas)
+                        {
+                            FbAdId = areaDto.FbAdId;
+                            InstaAdId = areaDto.IgAdId;
+                        }
+                    }
+                }
+            }
+
+            Id = dto.Id;
+            Name = dto.FirstName;
+            Email = dto.Email;
+            if (dto.Status != null)
+            {
+                Status = Enum.Parse<CustomerStatus>(dto.Status);
+            }
+            Language = dto.Language;
+            Country = dto.Country;
+            Phone = dto.PhoneNr;
         }
 
         public CustomerDetails()

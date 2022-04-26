@@ -22,22 +22,28 @@ namespace LogicLayer.Classes
 
           public Customer(CustomerDTO dto)
           {
-               var activities = new List<Activity>();
-               foreach (var activity in dto._activities)
+               if (dto._activities != null)
                {
-                    activities.Add(new Activity(activity));
+                    var activities = new List<Activity>();
+                    foreach (var activity in dto._activities)
+                    {
+                         activities.Add(new Activity(activity));
+                    }
+                    _activities = activities;
                }
 
-               var searches = new List<Search>();
-               foreach (var search in dto._searches)
+               if (dto._searches != null)
                {
-                    searches.Add(new Search(search));
+                    var searches = new List<Search>();
+                    foreach (var search in dto._searches)
+                    {
+                         searches.Add(new Search(search));
+                    }
+                    _searches = searches;
                }
-               
+
                LastName = dto.LastName;
-               _activities = activities;
                FirstName = dto.FirstName;
-               _searches = searches;
                Country = dto.Country;
                Email = dto.Email;
                Id = dto.Id;

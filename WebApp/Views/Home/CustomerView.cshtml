@@ -42,14 +42,17 @@
                     <div style="height: 100%; width: 100%; overflow: scroll" size="10">
                         @{
                             var i = 0;
-                            foreach (var note in Model.Notes)
+                            if (Model.Notes != null)
                             {
-                                var j = i;
-                                <div style="display: flex">
-                                    <p>@note</p>
-                                    @Html.TextBoxFor(model => model.Notes[j])
-                                </div>
-                                i++;
+                                foreach (var note in Model.Notes)
+                                {
+                                    var j = i;
+                                    <div style="display: flex">
+                                        <p>@note</p>
+                                        @Html.TextBoxFor(model => model.Notes[j])
+                                    </div>
+                                    i++;
+                                }
                             }
                         }
                     </div>
