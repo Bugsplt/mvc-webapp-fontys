@@ -7,7 +7,7 @@ namespace WebAppProftS2Tests.Classes
     [TestClass]
     public class CustomerTest
     {
-        
+
         [TestMethod]
         public void TestAddSearch()
         {
@@ -33,7 +33,8 @@ namespace WebAppProftS2Tests.Classes
             //act
             customer.RemoveSearch(search2);
             //assert
-            Assert.IsTrue(customer.GetSearches().Contains(search1) && customer.GetSearches().Contains(search3) && !customer.GetSearches().Contains(search2));
+            Assert.IsTrue(customer.GetSearches().Contains(search1) && customer.GetSearches().Contains(search3) &&
+                          !customer.GetSearches().Contains(search2));
         }
 
         [TestMethod]
@@ -46,7 +47,7 @@ namespace WebAppProftS2Tests.Classes
             //assert
             Assert.IsTrue(customer.GetActivities().Contains(activity));
         }
-        
+
         [TestMethod]
         public void TestRemoveActivity()
         {
@@ -60,9 +61,11 @@ namespace WebAppProftS2Tests.Classes
             //act
             customer.RemoveActivity(activity2);
             //assert
-            Assert.IsTrue(customer.GetActivities().Contains(activity1) && customer.GetActivities().Contains(activity3) && !customer.GetActivities().Contains(activity2));
+            Assert.IsTrue(customer.GetActivities().Contains(activity1) &&
+                          customer.GetActivities().Contains(activity3) &&
+                          !customer.GetActivities().Contains(activity2));
         }
-        
+
         [TestMethod]
         public void TestClear()
         {
@@ -77,6 +80,19 @@ namespace WebAppProftS2Tests.Classes
             customer.Clear();
             //assert
             Assert.IsTrue(customer.GetSearches().Count == 0 && customer.GetActivities().Count == 0);
+        }
+
+        //test if the SetLanguage function sets the language of the customer
+        [TestMethod]
+        public void TestSetLanguage()
+        {
+            //arrange
+            var customer = new Customer();
+            var language = "English";
+            //act
+            customer.SetLanguage(language);
+            //assert
+            Assert.AreEqual(language, customer.Language, "The language is not set correctly");
         }
     }
 }

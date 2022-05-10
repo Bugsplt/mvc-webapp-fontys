@@ -1,7 +1,7 @@
 ﻿@model CustomerDetails
 
 @{
-    ViewData["Title"] = "Customer";
+    ViewData["Title"] = "CreateCustomer";
 }
 <h1>@ViewData["Title"]</h1>
 @{
@@ -11,48 +11,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>title</title>
+    <title>New Customer</title>
 </head>
 <body>
-<div style="left: 0; width: 10%; position: relative">
-    <button style="width: 100%; height: 100%" onclick="deleteCustomer(@Model.Id)">Delete @Model.Id</button>
-    </div>
 @using (Html.BeginForm())
 {
     <div style="height: 80vh">
         <div style="display:flex; height: 10%">
             <div style="width: 60%; position: relative; border: #0b2e13">
-                <p>@Model.Email @Model.Name</p>
-                @Html.HiddenFor(model => model.Email, new { Value = Model.Email })
-                 @Html.HiddenFor(model => model.Name, new { Value = Model.Name })
+                <p>Create new customer</p>
             </div>
             <div style="width: 10%; position: relative">
                 <button style="width: 100%; height: 100%">GDPR</button>
             </div>
             <div style="width: 20%; position: relative">
-                <p>@Model.Status</p>
-                 @Html.HiddenFor(model => model.Status, new { Value = Model.Status })
+
             </div>
         </div>
         <div style="display:flex; height: 90%">
             <div style="left: 0; width: 70%; position: relative">
                 <div style="height: 10%">
                     <div style="height: 100%; width: 100%; overflow: scroll" size="10">
-                        @{
-                            var i = 0;
-                            if (Model.Notes != null)
-                            {
-                                foreach (var note in Model.Notes)
-                                {
-                                    var j = i;
-                                    <div style="display: flex">
-                                        <p>@note</p>
-                                        @Html.TextBoxFor(model => model.Notes[j])
-                                    </div>
-                                    i++;
-                                }
-                            }
-                        }
+                        @* @{ *@
+                        @*     var i = 0; *@
+                        @*     if (Model.Notes != null) *@
+                        @*     { *@
+                        @*         foreach (var note in Model.Notes) *@
+                        @*         { *@
+                        @*             var j = i; *@
+                        @*             <div style="display: flex"> *@
+                        @*                 <p>@note</p> *@
+                        @*                 @Html.TextBoxFor(model => model.Notes[j]) *@
+                        @*             </div> *@
+                        @*             i++; *@
+                        @*         } *@
+                        @*     } *@
+                        @* } *@
                     </div>
                 </div>
                 <div style="display:flex; height: 45%">
@@ -95,41 +89,45 @@
                 <div style="height: 45%">
                     <div style="height: 100%; width: 100%; overflow: scroll">
                         <div style="display: flex">
-                            <p>Id: @Model.Id</p>
-                            @Html.TextBoxFor(model => model.Id)
+                            <p>Email: </p>
+                            @Html.TextBoxFor(model => model.Email)
                         </div>
                         <div style="display: flex">
-                            <p>Cat name: @Model.CatName</p>
+                            <p>Name: </p>
+                            @Html.TextBoxFor(model => model.Name)
+                        </div>
+                        <div style="display: flex">
+                            <p>Cat name: </p>
                             @Html.TextBoxFor(model => model.CatName)
                         </div>
                         <div style="display: flex">
-                            <p>Phone number: @Model.Phone</p>
+                            <p>Phone number: </p>
                             @Html.TextBoxFor(model => model.Phone)
                         </div>
                         <div style="display: flex">
-                            <p>Country: @Model.Country</p>
+                            <p>Country: </p>
                             @Html.TextBoxFor(model => model.Country)
                         </div>
                         <div style="display: flex">
-                            <p>Language: @Model.Language</p>
+                            <p>Language: </p>
                             @Html.TextBoxFor(model => model.Language)
                         </div>
                         <div style="display: flex">
-                            <p> Insta post id: @Model.InstaPostId</p>
+                            <p> Insta post id: </p>
                             @Html.TextBoxFor(model => model.InstaPostId)
                         </div>
                         <div style="display: flex">
-                            <p>Insta ad id: @Model.InstaAdId</p>
+                            <p>Insta ad id: </p>
                             @Html.TextBoxFor(model => model.InstaAdId)
                         </div>
                         <div style="display: flex">
-                            <p>Fb post id: @Model.FbPostId</p>
+                            <p>Fb post id: </p>
                             @Html.TextBoxFor(model => model.FbPostId)
                         </div>
-                         <div style="display: flex">
-                             <p>Fb ad id: @Model.FbAdId</p>
-                             @Html.TextBoxFor(model => model.FbAdId)
-                                </div>                    
+                        <div style="display: flex">
+                            <p>Fb ad id: </p>
+                            @Html.TextBoxFor(model => model.FbAdId)
+                        </div>
                         @* @{ *@
                         @*     i = 0; *@
                         @*     foreach (var search in Model.Searches) *@
@@ -157,7 +155,7 @@
                     @*  @Html.HiddenFor(model => model.Activity, new { Value = Model.Activity }) *@
                 </div>
                 <div style="height: 50%;">
-                    <button type="submit">Save edits</button>
+                    <button type="submit">Create new Customer</button>
                 </div>
             </div>
 

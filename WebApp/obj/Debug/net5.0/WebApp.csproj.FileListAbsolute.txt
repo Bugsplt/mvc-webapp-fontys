@@ -89,3 +89,4 @@ C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\obj\Debug\net5.0\WebAp
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\obj\Debug\net5.0\WebApp.genruntimeconfig.cache
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\bin\Debug\net5.0\WebAppDAL.dll
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\bin\Debug\net5.0\WebAppDAL.pdb
+C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\obj\Debug\net5.0\Razor\Views\Home\CreateCustomer.cshtml.g.cs

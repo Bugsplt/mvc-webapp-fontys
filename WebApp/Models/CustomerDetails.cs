@@ -39,7 +39,8 @@ namespace WebAppProftS2.Models
         public string Phone { get; set; }
         public string CatName { get; set; }
 
-
+        public string CatId { get; set; }
+        
         public CustomerDetails(CustomerDTO dto)
         {
             if (dto._activities != null)

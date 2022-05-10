@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using InterfaceLayer.DTO;
 using InterfaceLayer.Interface;
 using Newtonsoft.Json.Linq;
@@ -81,6 +82,14 @@ namespace WebAppDAL
             _apiClient.Post(body,url); 
         }
         
+        public int CreateCustomer(CustomerDTO detailDto)
+        {
+            var (body, url) = _requestBuilder.CreateCustomer(detailDto);
+            var json = _apiClient.Post(body,url); 
+            var token = JToken.Parse(json); 
+            return int.Parse(token["id"]?.ToString() ?? throw new InvalidOperationException("Customer not created"));
+        }
+        
         public (List<ProspectDTO>, List<CustomerDTO>) LoadCustomerView()
         {
             var (body, url) = _requestBuilder.GetCustomerOverView();
@@ -113,6 +122,12 @@ namespace WebAppDAL
                 }
             }
             return (prospects, customers);
+        }
+
+        public void RemoveCustomer(CustomerDTO customer)
+        {
+            var (body, url) = _requestBuilder.RemoveCustomer(customer);
+            _apiClient.Post(body, url);
         }
     }
 }

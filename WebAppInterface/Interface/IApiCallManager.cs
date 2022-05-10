@@ -8,5 +8,7 @@ namespace InterfaceLayer.Interface
         public CustomerDTO LoadCustomerDetailView(string id);
         public void UpdateCustomerDetails(CustomerDTO detailDto);
         public (List<ProspectDTO>, List<CustomerDTO>) LoadCustomerView();
+        public void RemoveCustomer(CustomerDTO customerDto);
+        public int CreateCustomer(CustomerDTO customerDto);
     }
 }

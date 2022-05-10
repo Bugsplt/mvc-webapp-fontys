@@ -13,9 +13,8 @@ function openCustomer(json){
     window.location.href = "/Home/CustomerView/" + customer.id
 }
 
-function openCustomerId(id){
-    alert("hi")
-    setTimeout(function () {
-        window.location.href = "/Home/CustomerView/" + id
-    },2000)
+function deleteCustomer(id){
+    window.location.href = "/Home/DeleteCustomer/" + id
 }
+
+

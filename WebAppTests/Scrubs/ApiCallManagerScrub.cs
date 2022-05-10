@@ -2,7 +2,7 @@
 using InterfaceLayer.DTO;
 using InterfaceLayer.Interface;
 
-namespace WebAppProftS2Tests.Stubs
+namespace WebAppProftS2Tests.Scrubs
 {
     public class ApiCallManagerStub : IApiCallManager
     {
@@ -17,6 +17,16 @@ namespace WebAppProftS2Tests.Stubs
         }
 
         public (List<ProspectDTO>, List<CustomerDTO>) LoadCustomerView()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void RemoveCustomer(CustomerDTO customerDto)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public int CreateCustomer(CustomerDTO customerDto)
         {
             throw new System.NotImplementedException();
         }

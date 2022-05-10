@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using InterfaceLayer.DTO;
 using InterfaceLayer.Interface;
 using LogicLayer.Classes;
-using WebAppDAL;
+
 
 namespace LogicLayer.Containers
 {
@@ -21,11 +22,36 @@ namespace LogicLayer.Containers
             Customers.Add(customer);
         }
         
-        public void Remove(Customer customer)
+        public void Remove(CustomerDTO customer)
         {
-            Customers.Remove(customer);
+            try
+            { 
+                _apiCallManager.RemoveCustomer(customer);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            Customers.Remove(Customers.Find(c => c.Id == customer.Id));
         }
-
+                        
+        public void Update(CustomerDTO customer)
+        {
+            try
+            {
+                _apiCallManager.UpdateCustomerDetails(customer);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            var customerToUpdate = Customers.Find(c => c.Id == customer.Id);
+            Customers.Remove(customerToUpdate);
+            Customers.Add(new Customer(customer));
+        }
+        
         public void Clear()
         {
             Customers.Clear();
@@ -54,9 +80,9 @@ namespace LogicLayer.Containers
             var customer = GetCustomer(id);
             if (customer != null)
             {
-                Remove(customer);
+                Customers.Remove(customer);
                 var customerDto = _apiCallManager.LoadCustomerDetailView(id);
-                Add(new Customer(customerDto));
+                Customers.Add(new Customer(customerDto));
                 return customerDto;
             }
             else
@@ -73,6 +99,22 @@ namespace LogicLayer.Containers
             {
                 Customers.Add(new Customer(customerDto));
             }
+        }
+
+        public int Create(CustomerDTO customer)
+        {
+            int id;
+            try
+            {
+                id = _apiCallManager.CreateCustomer(customer);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            Customers.Add(new Customer(customer));
+            return id;
         }
 
         public CustomerContainer(IApiCallManager apiCallManager)

@@ -13,7 +13,7 @@ namespace WebAppProftS2.Controllers
 {
     public class HomeController : Controller
     {
-        private Toolbox _toolbox = new();
+        private Factory _factory = new();
 
         private readonly ILogger<HomeController> _logger;
 
@@ -34,37 +34,35 @@ namespace WebAppProftS2.Controllers
         
         public IActionResult Dashboard()
         {
-            _toolbox.CustomerContainer.Load();
-            _toolbox.ProspectContainer.Load();
-            return View(new ContactView(_toolbox.CustomerContainer.GetCustomers(), _toolbox.ProspectContainer.GetProspects()));
+            _factory.CustomerContainer.Load();
+            _factory.ProspectContainer.Load();
+            return View(new ContactView(_factory.CustomerContainer.GetCustomers(), _factory.ProspectContainer.GetProspects()));
         }
         
         [HttpGet]
         public IActionResult CustomerView(string id)
         {
-            return View(new CustomerDetails(_toolbox.CustomerContainer.LoadCustomer(id)));
+            return View(new CustomerDetails(_factory.CustomerContainer.LoadCustomer(id)));
         }
         
         [HttpPost]
-        public IActionResult CustomerView(CustomerDetails details)
+        public IActionResult CustomerView(CustomerDetails details) 
         {
             var areas = new List<AreaDTO>();
-            areas.Add(new AreaDTO()
-            {
+            areas.Add(new AreaDTO() {
                 FbAdId = details.FbAdId,
                 IgAdId = details.InstaAdId
             });
             
             var searches = new List<SearchDTO>();
-            searches.Add(new SearchDTO()
-            {
+            searches.Add(new SearchDTO() {
                 _areas = areas,
                 CatName = details.CatName,
                 FbPostId = details.FbPostId,
                 IgPostId = details.InstaPostId
             });
-            _toolbox.ApiCallManager.UpdateCustomerDetails(new CustomerDTO()
-            {
+            
+            _factory.CustomerContainer.Update(new CustomerDTO() {
                 Id = details.Id,
                 FirstName = details.Name,
                 Email = details.Email,
@@ -74,8 +72,9 @@ namespace WebAppProftS2.Controllers
                 PhoneNr = details.Phone,
                 _searches = searches
             });
+
             //todo  
-            Thread.Sleep(5);
+            Thread.Sleep(50);
             return RedirectToAction("CustomerView","Home",details.Id);
         }
 
@@ -83,6 +82,55 @@ namespace WebAppProftS2.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
+        }
+        
+        [HttpGet]
+        public IActionResult DeleteCustomer(string id)
+        {
+            _factory.CustomerContainer.Remove(new CustomerDTO() {
+                Id = id
+            });
+            
+            Thread.Sleep(50);
+            return RedirectToAction("Dashboard","Home");
+        }
+        
+        [HttpGet]
+        public IActionResult CreateCustomer()
+        {
+            return View(new CustomerDetails());
+        }
+        
+        [HttpPost]
+        public IActionResult CreateCustomer(CustomerDetails details) 
+        {
+            var areas = new List<AreaDTO>();
+            areas.Add(new AreaDTO() {
+                FbAdId = details.FbAdId,
+                IgAdId = details.InstaAdId
+            });
+            
+            var searches = new List<SearchDTO>();
+            searches.Add(new SearchDTO() {
+                _areas = areas,
+                CatName = details.CatName,
+                FbPostId = details.FbPostId,
+                IgPostId = details.InstaPostId
+            });
+            
+            var id = _factory.CustomerContainer.Create(new CustomerDTO() {
+                FirstName = details.Name,
+                Email = details.Email,
+                Status = details.Status.ToString(),
+                Language = details.Language,
+                Country = details.Country,
+                PhoneNr = details.Phone,
+                _searches = searches
+            });
+
+            //todo  
+            Thread.Sleep(50);
+            return RedirectToAction("CustomerView","Home",new {id});   
         }
     }
 }
