@@ -6903,6 +6903,7 @@
       "MSTest.TestFramework >= 2.1.1",
       "Microsoft.NET.Test.Sdk >= 16.7.1",
       "WebApp >= 1.0.0",
+      "WebAppDAL >= 1.0.0",
       "coverlet.collector >= 1.3.0"
     ]
   },
@@ -6933,6 +6934,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppDAL\\WebAppDAL.csproj": {
+              "projectPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebAppDAL\\WebAppDAL.csproj"
+            },
             "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebApp\\WebApp.csproj": {
               "projectPath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\WebApp\\WebApp.csproj"
             }

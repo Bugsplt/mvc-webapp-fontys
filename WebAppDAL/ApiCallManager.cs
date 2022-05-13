@@ -129,5 +129,7 @@ namespace WebAppDAL
             var (body, url) = _requestBuilder.RemoveCustomer(customer);
             _apiClient.Post(body, url);
         }
+        
+        
     }
 }

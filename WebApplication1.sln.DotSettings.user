@@ -1,11 +1,4 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5ecefca8_002D82a3_002D4a41_002Dbd39_002De1298459b996/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from ApiCallManagerTest.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Or&gt;&#xD;
-    &lt;ProjectFile&gt;C654A1E1-1636-429C-B5F0-981E7C7652E0/d:DAL/f:ApiCallManagerTest.cs&lt;/ProjectFile&gt;&#xD;
-    &lt;TestAncestor&gt;&#xD;
-      &lt;TestId&gt;MSTest::C654A1E1-1636-429C-B5F0-981E7C7652E0::net5.0::WebAppProftS2Tests.DAL.RequestBuilderTest.TestGetCustomerDetails&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;MSTest::C654A1E1-1636-429C-B5F0-981E7C7652E0::net5.0::WebAppProftS2Tests.DAL.RequestBuilderTest.TestUpdateCustomerDetails&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;MSTest::C654A1E1-1636-429C-B5F0-981E7C7652E0::net5.0::WebAppProftS2Tests.Classes.CustomerTest&lt;/TestId&gt;&#xD;
-    &lt;/TestAncestor&gt;&#xD;
-  &lt;/Or&gt;&#xD;
+  &lt;Project Location="C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppTests" Presentation="&amp;lt;WebAppTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

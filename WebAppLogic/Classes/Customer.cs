@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using InterfaceLayer.DTO;
 using Newtonsoft.Json.Linq;
-using WebAppDAL;
 
 namespace LogicLayer.Classes
 {
@@ -15,7 +14,7 @@ namespace LogicLayer.Classes
           public string Email { get; private set; }
           public string Id { get; private set; }
 
-          public string Status;
+          public string Status { get; private set; }
           
           private List<Search> _searches = new();
           private List<Activity> _activities = new();
