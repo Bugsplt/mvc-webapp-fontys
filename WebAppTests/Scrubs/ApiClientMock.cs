@@ -127,9 +127,10 @@ namespace WebAppProftS2Tests.Scrubs
                     return "success";
                 case "https://server.kattenradar.nl/create-customer":
                     var test = JToken.Parse(body)["content"]?.ToString();
-                    _customerStub.Customers.Add(
-                        JsonSerializer.Deserialize<CustomerDTO>(test));
-                    return "success";
+                    var customer = JsonSerializer.Deserialize<CustomerDTO>(test);
+                    customer.Id = (_customerStub.Customers.Count + 1).ToString();
+                    _customerStub.Customers.Add(customer);
+                    return "{\"id\":" + (_customerStub.Customers.Count - 1) + "}";
                 default:
                     throw new Exception("Url not recognized (should be valid?)");
             }
