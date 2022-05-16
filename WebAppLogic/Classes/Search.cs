@@ -218,10 +218,16 @@ namespace LogicLayer.Classes
             {
                 searchStatDtos.Add(searchStat.ToDto());
             }
+            
+            var feedbackDto = new FeedbackDTO();
+            if (Feedback != null)
+            {
+                feedbackDto = Feedback.ToDto();
+            }
 
             return new SearchDTO()
             {
-                Feedback = Feedback.ToDto(),
+                Feedback = feedbackDto,
                 CatStatus = (InterfaceLayer.Enums.CatStatus) CatStatus,
                 AdStatus = (InterfaceLayer.Enums.AdStatus) AdStatus,
                 CatName = CatName,

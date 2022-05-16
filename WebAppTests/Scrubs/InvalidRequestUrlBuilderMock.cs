@@ -28,12 +28,16 @@ namespace WebAppProftS2Tests.Scrubs
 
         public (string, string) RemoveCustomer(CustomerDTO customer)
         {
-            throw new System.NotImplementedException();
+            var body = "valid";
+            var url = "invalid";
+            return (body, url);
         }
 
         public (string, string) CreateCustomer(CustomerDTO customer)
         {
-            throw new System.NotImplementedException();
+            var body = "valid";
+            var url = "invalid";
+            return (body, url);
         }
     }
 }

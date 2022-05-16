@@ -44,7 +44,10 @@ namespace LogicLayer.Classes
         
         public Tip(TipDTO dto)
         {
-            Sighting = new Sighting(dto.Sighting);
+            if (dto.Sighting != null)
+            {
+                Sighting = new Sighting(dto.Sighting);
+            }
             Platform = (Platform) dto.Platform;
             SightingDate = dto.SightingDate;
             Date = dto.Date;
@@ -55,9 +58,14 @@ namespace LogicLayer.Classes
         
         public TipDTO ToDto()
         {
+            var sighting = new SightingDTO();
+            if (Sighting != null)
+            {
+                sighting = Sighting.ToDto();
+            }
             return new()
             {
-                Sighting = Sighting.ToDto(),
+                Sighting = sighting,
                 Platform = (InterfaceLayer.Enums.Platform) Platform,
                 SightingDate = SightingDate,
                 Date = Date,

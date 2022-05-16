@@ -14,11 +14,19 @@ namespace LogicLayer.Containers
 
         public IReadOnlyList<Customer> GetCustomers()
         {
+            Clear();
+            var (prospectDtos, customerDtos) = _apiCallManager.LoadCustomerView();
+            foreach (var customerDto in customerDtos)
+            {
+                Customers.Add(new Customer(_apiCallManager.LoadCustomerDetailView(customerDto.Id)));
+            }
+            
             return Customers;
         }
 
         public void Add(Customer customer)
         {
+            _apiCallManager.CreateCustomer(customer.ToDto());
             Customers.Add(customer);
         }
         
@@ -55,11 +63,6 @@ namespace LogicLayer.Containers
         public void Clear()
         {
             Customers.Clear();
-        }
-
-        public void SetCustomers(List<Customer> customers)
-        {
-            Customers = customers;
         }
 
         public Customer GetCustomer(string id)
@@ -113,6 +116,7 @@ namespace LogicLayer.Containers
                 Console.WriteLine(e);
                 throw;
             }
+            customer.Id = id.ToString();
             Customers.Add(new Customer(customer));
             return id;
         }

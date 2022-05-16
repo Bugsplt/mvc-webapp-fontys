@@ -203,7 +203,7 @@ namespace WebAppProftS2Tests.DAL
             Assert.AreEqual(prospectStub.Prospects.Count, prospects.Count, "Not all prospects where retrieved");
             Assert.AreEqual(customerStub.Customers.Count, customers.Count, "Not all customers where retrieved");
         }
-
+        
         [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void LoadCustomerViewInvalidUrl()
@@ -281,5 +281,96 @@ namespace WebAppProftS2Tests.DAL
             Assert.AreEqual(customerDto._searches[0]._areas[0].IgAdId, customerStub.Customers[^1]._searches[0]._areas[0].IgAdId, "Customer IgAdId was not created"); 
             Assert.AreEqual(customerDto._searches[0]._areas[0].FbAdId, customerStub.Customers[^1]._searches[0]._areas[0].FbAdId, "Customer FbAdId was not created");
         }
+        
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void CreateCustomer_InvalidCustomerDto()
+        {
+            //arrange
+            var prospectStub = new ProspectStub();
+            var customerStub = new CustomerStub();
+            var client = new ApiClientScrub(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderScrub();
+            IApiCallManager manager = new ApiCallManager(client, requestBuilder);
+            var inValidDto = customerStub.Customers[0];
+            var correctAmount = customerStub.Customers.Count;
+            //act
+            manager.CreateCustomer(inValidDto);
+            //assert
+            Assert.AreEqual(correctAmount, customerStub.Customers.Count, "Customer was created");
+        }
+        
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void CreateCustomer_InvalidUrl()
+        {
+            //arrange
+            var prospectStub = new ProspectStub();
+            var customerStub = new CustomerStub();
+            var client = new ApiClientScrub(prospectStub, customerStub);
+            var requestBuilder = new InvalidRequestUrlBuilderScrub();
+            IApiCallManager manager = new ApiCallManager(client, requestBuilder);
+            var inValidDto = customerStub.Customers[0];
+            var correctAmount = customerStub.Customers.Count;
+            //act
+            manager.CreateCustomer(inValidDto);
+            //assert
+            Assert.AreEqual(correctAmount, customerStub.Customers.Count, "Customer was created");
+        }
+        
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void CreateCustomer_InvalidBody()
+        {
+            //arrange
+            var prospectStub = new ProspectStub();
+            var customerStub = new CustomerStub();
+            var client = new ApiClientScrub(prospectStub, customerStub);
+            var requestBuilder = new InvalidRequestBodyBuilderScrub();
+            IApiCallManager manager = new ApiCallManager(client, requestBuilder);
+            var inValidDto = customerStub.Customers[0];
+            var correctAmount = customerStub.Customers.Count;
+            //act
+            manager.CreateCustomer(inValidDto);
+            //assert
+            Assert.AreEqual(correctAmount, customerStub.Customers.Count, "Customer was created");
+        }
+        
+        [TestMethod]
+        public void RemoveCustomer_ValidCustomer()
+        {
+            //arrange
+            var prospectStub = new ProspectStub();
+            var customerStub = new CustomerStub();
+            var client = new ApiClientScrub(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderScrub();
+            IApiCallManager manager = new ApiCallManager(client, requestBuilder);
+            var correctAmount = customerStub.Customers.Count - 1;
+            //act
+            manager.RemoveCustomer(customerStub.Customers[0]);
+            //assert
+            Assert.AreEqual(correctAmount, customerStub.Customers.Count, "Customer was not removed");
+        }
+        
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void RemoveCustomer_InvalidCustomer()
+        {
+            //arrange
+            var prospectStub = new ProspectStub();
+            var customerStub = new CustomerStub();
+            var client = new ApiClientScrub(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderScrub();
+            IApiCallManager manager = new ApiCallManager(client, requestBuilder);
+            var correctAmount = customerStub.Customers.Count;
+            var customer = new CustomerDTO();
+            customer.Id = "invalid";
+            //act
+            manager.RemoveCustomer(customer);
+            //assert
+            Assert.AreEqual(correctAmount, customerStub.Customers.Count, "Customer was removed");
+        }
+        
     }
 }
+

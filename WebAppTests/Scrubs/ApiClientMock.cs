@@ -14,7 +14,7 @@ namespace WebAppProftS2Tests.Scrubs
     {
         private ProspectStub _prospectStub;
         private CustomerStub _customerStub;
-        
+
         public string Get(string getUrl)
         {
             throw new NotImplementedException();
@@ -26,10 +26,12 @@ namespace WebAppProftS2Tests.Scrubs
             {
                 throw new Exception("Invalid Post Url");
             }
+
             if (body == "invalid")
             {
                 throw new Exception("Invalid Post Body");
             }
+
             var json = "";
             JToken jToken = new JObject();
             switch (postUrl)
@@ -41,14 +43,15 @@ namespace WebAppProftS2Tests.Scrubs
                     foreach (var prospectDto in _prospectStub.Prospects)
                     {
                         var prospectToken = new JObject();
-                        prospectToken["catName"] = prospectDto.CatName ;
+                        prospectToken["catName"] = prospectDto.CatName;
                         prospectToken["email"] = prospectDto.Email;
                         prospectToken["phoneNr"] = prospectDto.PhoneNr;
                         prospectToken["prospectNr"] = prospectDto.ProspectNr;
                         prospectArr.Add(prospectToken);
                     }
+
                     jToken["Prospects"] = JToken.FromObject(prospectArr);
-                    
+
                     jToken["Customers"] = new JObject();
                     var customerArr = new List<JObject>();
                     foreach (var customerDto in _customerStub.Customers)
@@ -60,45 +63,68 @@ namespace WebAppProftS2Tests.Scrubs
                         customerToken["id"] = customerDto.Id;
                         customerArr.Add(customerToken);
                     }
+
                     jToken["Customers"] = JToken.FromObject(customerArr);
-                    
+
                     json = jToken.ToString();
                     return json;
                 //gets in depth details of a customer
                 case "https://server.kattenradar.nl/get-customer-detail-view":
                     CustomerDTO customerDetails = null;
-                    foreach (var customerStubCustomer in _customerStub.Customers)
+                    if (_customerStub.Customers != null)
                     {
-                        if (customerStubCustomer.Id == JToken.Parse(body)["id"]?.ToString())
+                        foreach (var customerStubCustomer in _customerStub.Customers)
                         {
-                            customerDetails = customerStubCustomer;
+                            if (customerStubCustomer.Id == JToken.Parse(body)["id"]?.ToString())
+                            {
+                                customerDetails = customerStubCustomer;
+                            }
                         }
                     }
+
                     if (customerDetails == null)
                     {
                         throw new Exception("Customer not found");
                     }
 
                     var activities = new JArray();
-                    foreach (var activity in customerDetails._activities)
+                    if (customerDetails._activities != null)
                     {
-                        activities.Add(activity.Type);
+                        foreach (var activity in customerDetails._activities)
+                        {
+                            activities.Add(activity.Type);
+                        }
                     }
+
                     jToken["activity"] = activities;
 
                     var tips = new JArray();
-                    foreach (var tip in customerDetails._searches[0]._tips)
+                    if (customerDetails._searches != null)
                     {
-                        tips.Add(tip.Content);
+                        if (customerDetails._searches.Count != 0)
+                        {
+                            if (customerDetails._searches[0]._tips != null)
+                            {
+                                foreach (var tip in customerDetails._searches[0]._tips)
+                                {
+                                    tips.Add(tip.Content);
+                                }
+
+                                jToken["FbPostId"] = customerDetails._searches[0].FbPostId;
+                                jToken["instaPostId"] = customerDetails._searches[0].IgPostId;
+                                jToken["catName"] = customerDetails._searches[0].CatName;
+                            }
+
+                            if (customerDetails._searches[0]._areas != null)
+                            {
+                                jToken["FbAdId"] = customerDetails._searches[0]._areas[0].FbAdId;
+                                jToken["instaAdId"] = customerDetails._searches[0]._areas[0].IgAdId;
+                            }
+                        }
                     }
+
                     jToken["tips"] = tips;
-                    
-                    jToken["FbAdId"] = customerDetails._searches[0]._areas[0].FbAdId;
-                    jToken["instaAdId"] = customerDetails._searches[0]._areas[0].IgAdId;
-                    
-                    jToken["FbPostId"] = customerDetails._searches[0].FbPostId;
-                    jToken["instaPostId"] = customerDetails._searches[0].IgPostId;
-                    jToken["catName"] = customerDetails._searches[0].CatName;
+
 
                     jToken["name"] = customerDetails.FirstName;
                     jToken["email"] = customerDetails.Email;
@@ -111,8 +137,12 @@ namespace WebAppProftS2Tests.Scrubs
                     return json;
                 //updates a customers details
                 case "https://server.kattenradar.nl/edit-customer-details":
-                    _customerStub.Customers[int.Parse(JToken.Parse(body)["id"]?.ToString() ?? throw new InvalidOperationException("Id was null"))] = 
-                        JsonSerializer.Deserialize<CustomerDTO>(JToken.Parse(body)["content"]?.ToString() ?? throw new InvalidOperationException("Content was null"));
+                    _customerStub.Customers[
+                            int.Parse(JToken.Parse(body)["id"]?.ToString() ??
+                                      throw new InvalidOperationException("Id was null"))] =
+                        JsonSerializer.Deserialize<CustomerDTO>(JToken.Parse(body)["content"]?.ToString() ??
+                                                                throw new InvalidOperationException(
+                                                                    "Content was null"));
                     return "success";
                 case "https://server.kattenradar.nl/remove-customer":
                     CustomerDTO customerDetails2 = null;
@@ -123,14 +153,30 @@ namespace WebAppProftS2Tests.Scrubs
                             customerDetails2 = customerStubCustomer;
                         }
                     }
+
+                    if (customerDetails2 == null)
+                    {
+                        throw new Exception("Customer not found");
+                    }
+
                     _customerStub.Customers.Remove(customerDetails2);
                     return "success";
                 case "https://server.kattenradar.nl/create-customer":
                     var test = JToken.Parse(body)["content"]?.ToString();
                     var customer = JsonSerializer.Deserialize<CustomerDTO>(test);
                     customer.Id = (_customerStub.Customers.Count + 1).ToString();
+                    foreach (var customerStubCustomer in _customerStub.Customers)
+                    {
+                        if (customerStubCustomer.Email == customer.Email)
+                        {
+                            throw new ArgumentException("Email already exists");
+                        }
+                    }
+
+                    var id = _customerStub.Customers.Count + 999;
+                    customer.Id = id.ToString();
                     _customerStub.Customers.Add(customer);
-                    return "{\"id\":" + (_customerStub.Customers.Count - 1) + "}";
+                    return "{\"id\":" + id + "}";
                 default:
                     throw new Exception("Url not recognized (should be valid?)");
             }

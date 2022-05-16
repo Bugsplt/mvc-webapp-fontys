@@ -69,7 +69,7 @@ namespace WebAppDAL
                 Status = token["status"]?.ToString(),
                 _activities = activities,
                 _searches = searches,
-                Id = token["customerId"]?.ToString(),
+                Id = id,
                 Language = token["language"]?.ToString(),
                 Country = token["country"]?.ToString(),
                 PhoneNr = token["phone"]?.ToString()
