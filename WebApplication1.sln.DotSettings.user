@@ -1,4 +1,14 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5ecefca8_002D82a3_002D4a41_002Dbd39_002De1298459b996/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from ApiCallManagerTest.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppTests" Presentation="&amp;lt;WebAppTests&amp;gt;" /&gt;&#xD;
+	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">C:\Users\Tom\AppData\Local\JetBrains\Rider2021.1\resharper-host\temp\Rider\vAny\CoverageData\_WebApplication1.-841391555\Snapshot\snapshot.utdcvr</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5ecefca8_002D82a3_002D4a41_002Dbd39_002De1298459b996/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from ApiCallManagerTest.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;Project Location="C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppTests" Presentation="&amp;lt;WebAppTests&amp;gt;" /&gt;&#xD;
+    &lt;Project Location="C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\TestContainership" Presentation="&amp;lt;TestContainership&amp;gt;" /&gt;&#xD;
+  &lt;/Or&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=cc15b849_002D5712_002D4bd4_002D987c_002Db15092d4f6ad/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CreateCustomer" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;MSTest::C654A1E1-1636-429C-B5F0-981E7C7652E0::net5.0::WebAppProftS2Tests.DAL.ApiCallManagerTest.CreateCustomer&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

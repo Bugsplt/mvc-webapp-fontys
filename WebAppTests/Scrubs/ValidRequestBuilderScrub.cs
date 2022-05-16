@@ -30,12 +30,18 @@ namespace WebAppProftS2Tests.Scrubs
 
         public (string, string) RemoveCustomer(CustomerDTO customer)
         {
-            throw new System.NotImplementedException();
+            var jsonString = JsonSerializer.Serialize(customer);
+            var reqBody = "{\"id\":\"" + customer.Id +
+                          "\",\"content\":" + jsonString + "}";
+            return (reqBody, "https://server.kattenradar.nl/remove-customer");
         }
 
         public (string, string) CreateCustomer(CustomerDTO customer)
         {
-            throw new System.NotImplementedException();
+            var jsonString = JsonSerializer.Serialize(customer);
+            var reqBody = "{\"id\":\"" + customer.Id +
+                          "\",\"content\":" + jsonString + "}";
+            return (reqBody, "https://server.kattenradar.nl/create-customer");
         }
     }
 }

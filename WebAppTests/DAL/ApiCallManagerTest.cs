@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using InterfaceLayer.DTO;
+using InterfaceLayer.Enums;
 using InterfaceLayer.Interface;
+using LogicLayer.Classes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WebAppDAL;
 using WebAppProftS2Tests.Scrubs;
@@ -152,7 +155,7 @@ namespace WebAppProftS2Tests.DAL
             Assert.AreNotEqual(customerStub.Customers[0]._searches[0]._tips[0].Content, validDto._searches[0]._tips[0].Content, "TipContent was changed");
             Assert.AreNotEqual(customerStub.Customers[0]._searches[0]._tips[0].Content, validDto._searches[0]._tips[0].Content, "Email was changed");
         }
-
+        
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void UpdateInvalidCustomerDetails()
@@ -229,6 +232,54 @@ namespace WebAppProftS2Tests.DAL
             //act
             var (prospects, customers) = manager.LoadCustomerView();
             //assert
+        }
+        
+        [TestMethod]
+        public void CreateCustomer()
+        {
+            //arrange
+            var prospectStub = new ProspectStub();
+            var customerStub = new CustomerStub();
+            var client = new ApiClientScrub(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderScrub();
+            IApiCallManager manager = new ApiCallManager(client, requestBuilder);
+            var customerDto = new CustomerDTO() {
+                FirstName = "Test",
+                Email = "EmailTest",
+                PhoneNr = "12345678",
+                Country = "DE",
+                Language = "NL",
+                _searches = new List<SearchDTO>()
+                {
+                    new SearchDTO()
+                    {
+                        CatName = "CatName",
+                        IgPostId = "IgPostId",
+                        FbPostId = "FbPostId",
+                        _areas = new List<AreaDTO>()
+                        {
+                            new AreaDTO()
+                            {
+                                IgAdId = "IgAdId",
+                                FbAdId = "FbAdId",
+                            }
+                        }
+                    }
+                }
+            };
+            //act
+            manager.CreateCustomer(customerDto);
+            //assert
+            Assert.AreEqual(customerDto.FirstName, customerStub.Customers[^1].FirstName, "Customer FirstName was not created"); 
+            Assert.AreEqual(customerDto.Email, customerStub.Customers[^1].Email, "Customer Email was not created"); 
+            Assert.AreEqual(customerDto.PhoneNr, customerStub.Customers[^1].PhoneNr, "Customer PhoneNr was not created"); 
+            Assert.AreEqual(customerDto.Country, customerStub.Customers[^1].Country, "Customer Country was not created"); 
+            Assert.AreEqual(customerDto.Language, customerStub.Customers[^1].Language, "Customer Language was not created"); 
+            Assert.AreEqual(customerDto._searches[0].CatName, customerStub.Customers[^1]._searches[0].CatName, "Customer CatName was not created"); 
+            Assert.AreEqual(customerDto._searches[0].IgPostId, customerStub.Customers[^1]._searches[0].IgPostId, "Customer IgPostId was not created"); 
+            Assert.AreEqual(customerDto._searches[0].FbPostId, customerStub.Customers[^1]._searches[0].FbPostId, "Customer FbPostId was not created"); 
+            Assert.AreEqual(customerDto._searches[0]._areas[0].IgAdId, customerStub.Customers[^1]._searches[0]._areas[0].IgAdId, "Customer IgAdId was not created"); 
+            Assert.AreEqual(customerDto._searches[0]._areas[0].FbAdId, customerStub.Customers[^1]._searches[0]._areas[0].FbAdId, "Customer FbAdId was not created");
         }
     }
 }
