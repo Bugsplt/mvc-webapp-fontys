@@ -1,9 +1,10 @@
-﻿using InterfaceLayer.DTO;
+﻿using System;
+using InterfaceLayer.DTO;
 using LogicLayer.Classes;
 using LogicLayer.Containers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WebAppDAL;
-using WebAppProftS2Tests.Scrubs;
+using WebAppProftS2Tests.Mocks;
 using WebAppProftS2Tests.Stubs;
 
 namespace WebAppProftS2Tests.Containers
@@ -17,8 +18,8 @@ namespace WebAppProftS2Tests.Containers
             // Arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var apiClient = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var apiClient = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             var manager = new ApiCallManager(apiClient, requestBuilder );
             var customerContainer = new CustomerContainer(manager);
             // Act
@@ -36,41 +37,13 @@ namespace WebAppProftS2Tests.Containers
         }
 
         [TestMethod]
-        public void TestAdd()
-        {
-            // Arrange
-            var prospectStub = new ProspectStub();
-            var customerStub = new CustomerStub();
-            var apiClient = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
-            var manager = new ApiCallManager(apiClient, requestBuilder);
-            var customerContainer = new CustomerContainer(manager);
-            var customer = new Customer(new CustomerDTO()
-            {
-                FirstName = "Test",
-                LastName = "Test",
-                Language = "Test",
-                Country = "Test",
-                PhoneNr = "Test",
-                Email = "Test",
-                Status = "Test"
-            });
-            // Act
-            customerContainer.Add(customer);
-            // Assert
-            Assert.AreEqual(customerStub.Customers.Count, customerContainer.GetCustomers().Count); 
-        
-            
-        }
-
-        [TestMethod]
         public void TestRemove()
         {
             // Arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var apiClient = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var apiClient = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             var manager = new ApiCallManager(apiClient, requestBuilder);
             var customerContainer = new CustomerContainer(manager);
             var removedCustomer = customerContainer.GetCustomers()[0];
@@ -86,8 +59,8 @@ namespace WebAppProftS2Tests.Containers
             // Arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var apiClient = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var apiClient = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             var manager = new ApiCallManager(apiClient, requestBuilder);
             var customerContainer = new CustomerContainer(manager);
             var updatedCustomer = customerContainer.GetCustomers()[0];
@@ -122,8 +95,8 @@ namespace WebAppProftS2Tests.Containers
             // Arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var apiClient = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var apiClient = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             var manager = new ApiCallManager(apiClient, requestBuilder);
             var customerContainer = new CustomerContainer(manager);
             customerContainer.GetCustomers();
@@ -139,8 +112,8 @@ namespace WebAppProftS2Tests.Containers
             // Arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var apiClient = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var apiClient = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             var manager = new ApiCallManager(apiClient, requestBuilder);
             var customerContainer = new CustomerContainer(manager);
             var customer = customerContainer.GetCustomers()[0];
@@ -160,8 +133,8 @@ namespace WebAppProftS2Tests.Containers
             // Arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var apiClient = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var apiClient = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             var manager = new ApiCallManager(apiClient, requestBuilder);
             var customerContainer = new CustomerContainer(manager);
             var customer = customerContainer.GetCustomers()[0];
@@ -181,8 +154,8 @@ namespace WebAppProftS2Tests.Containers
             // Arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var apiClient = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var apiClient = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             var manager = new ApiCallManager(apiClient, requestBuilder);
             var customerContainer = new CustomerContainer(manager);
             var customerDto = new CustomerDTO()
@@ -206,13 +179,45 @@ namespace WebAppProftS2Tests.Containers
             // Arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var apiClient = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var apiClient = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             var manager = new ApiCallManager(apiClient, requestBuilder);
             // Act
             var customerContainer = new CustomerContainer(manager);
             // Assert
             Assert.IsNotNull(customerContainer);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestGetNullCustomer()
+        {
+            // Arrange
+            var prospectStub = new ProspectStub();
+            var customerStub = new CustomerStub();
+            var apiClient = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
+            var manager = new ApiCallManager(apiClient, requestBuilder);
+            var customerContainer = new CustomerContainer(manager);
+            // Act
+            var customer = customerContainer.GetCustomer("nonexistent");
+            // Assert
+        }
+        
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestLoadNonexistentCustomer()
+        {
+            // Arrange
+            var prospectStub = new ProspectStub();
+            var customerStub = new CustomerStub();
+            var apiClient = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
+            var manager = new ApiCallManager(apiClient, requestBuilder);
+            var customerContainer = new CustomerContainer(manager);
+            // Act
+            var customer = customerContainer.LoadCustomer("nonexistent");
+            // Assert
         }
     }
 }

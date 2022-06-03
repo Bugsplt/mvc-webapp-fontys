@@ -20,6 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\WebAppInterface\WebAppInterface.csproj" />
       <ProjectReference Include="..\WebAppLogic\WebAppLogic.csproj" />
     </ItemGroup>
 

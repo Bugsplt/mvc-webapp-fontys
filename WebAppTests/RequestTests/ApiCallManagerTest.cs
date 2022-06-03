@@ -6,7 +6,7 @@ using InterfaceLayer.Interface;
 using LogicLayer.Classes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WebAppDAL;
-using WebAppProftS2Tests.Scrubs;
+using WebAppProftS2Tests.Mocks;
 using WebAppProftS2Tests.Stubs;
 
 namespace WebAppProftS2Tests.DAL
@@ -20,8 +20,8 @@ namespace WebAppProftS2Tests.DAL
             //arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var client = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             IApiCallManager manager = new ApiCallManager(client, requestBuilder);
             var validId = "1";
             CustomerDTO expectedStub = null;
@@ -47,20 +47,19 @@ namespace WebAppProftS2Tests.DAL
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(ArgumentException))]
         public void LoadCustomerDetailViewInvalidId()
         {
             //arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var client = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             IApiCallManager manager = new ApiCallManager(client, requestBuilder);
             var inValidId = "999999";
             //act
             var result = manager.LoadCustomerDetailView(inValidId);
             //assert
-            Assert.AreEqual(null, result, "Result not null");
         }
         
         [TestMethod]
@@ -70,31 +69,29 @@ namespace WebAppProftS2Tests.DAL
             //arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var client = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new InvalidRequestBodyBuilderScrub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new InvalidRequestBodyBuilderMock();
             IApiCallManager manager = new ApiCallManager(client, requestBuilder);
             var validId = "1";
             //act
             var result = manager.LoadCustomerDetailView(validId);
             //assert
-            Assert.AreEqual(null, result, "Result not null");
         }
         
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(ArgumentException))]
         public void LoadCustomerDetailViewInvalidUrl()
         {
             //arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var client = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new InvalidRequestUrlBuilderScrub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new InvalidRequestUrlBuilderMock();
             IApiCallManager manager = new ApiCallManager(client, requestBuilder);
             var validId = "1";
             //act
             var result = manager.LoadCustomerDetailView(validId);
             //assert
-            Assert.AreEqual(null, result, "Result not null");
         }
 
         [TestMethod]
@@ -103,8 +100,8 @@ namespace WebAppProftS2Tests.DAL
             //arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var client = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             IApiCallManager manager = new ApiCallManager(client, requestBuilder);
             var validDto = customerStub.Customers[0];
             validDto.Email = "newEmail";
@@ -127,14 +124,14 @@ namespace WebAppProftS2Tests.DAL
         }
         
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(ArgumentException))]
         public void UpdateInvalidUrlCustomerDetails()
         {
             //arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var client = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new InvalidRequestUrlBuilderScrub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new InvalidRequestUrlBuilderMock();
             IApiCallManager manager = new ApiCallManager(client, requestBuilder);
             var validDto = customerStub.Customers[0];
             validDto.Email = "newEmail";
@@ -147,13 +144,6 @@ namespace WebAppProftS2Tests.DAL
             //act
             manager.UpdateCustomerDetails(validDto);
             //assert
-            Assert.AreNotEqual(customerStub.Customers[0].Email, validDto.Email, "Email was changed");
-            Assert.AreNotEqual(customerStub.Customers[0].Country, validDto.Country, "Country was changed");
-            Assert.AreNotEqual(customerStub.Customers[0].Language, validDto.Language, "Language was changed");   
-            Assert.AreNotEqual(customerStub.Customers[0].FirstName, validDto.FirstName, "FirstName was changed"); 
-            Assert.AreNotEqual(customerStub.Customers[0].PhoneNr, validDto.PhoneNr, "PhoneNr was changed");
-            Assert.AreNotEqual(customerStub.Customers[0]._searches[0]._tips[0].Content, validDto._searches[0]._tips[0].Content, "TipContent was changed");
-            Assert.AreNotEqual(customerStub.Customers[0]._searches[0]._tips[0].Content, validDto._searches[0]._tips[0].Content, "Email was changed");
         }
         
         [TestMethod]
@@ -163,8 +153,8 @@ namespace WebAppProftS2Tests.DAL
             //arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var client = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             IApiCallManager manager = new ApiCallManager(client, requestBuilder);
             var inValidDto = customerStub.Customers[0];
             var inValidId = "9999999";
@@ -179,13 +169,6 @@ namespace WebAppProftS2Tests.DAL
             //act
             manager.UpdateCustomerDetails(inValidDto);
             //assert
-            Assert.AreNotEqual(customerStub.Customers[0].Email, inValidDto.Email, "Email was changed");
-            Assert.AreNotEqual(customerStub.Customers[0].Country, inValidDto.Country, "Country was changed");
-            Assert.AreNotEqual(customerStub.Customers[0].Language, inValidDto.Language, "Language was changed");   
-            Assert.AreNotEqual(customerStub.Customers[0].FirstName, inValidDto.FirstName, "FirstName was changed"); 
-            Assert.AreNotEqual(customerStub.Customers[0].PhoneNr, inValidDto.PhoneNr, "PhoneNr was changed");
-            Assert.AreNotEqual(customerStub.Customers[0]._searches[0]._tips[0].Content, inValidDto._searches[0]._tips[0].Content, "TipContent was changed");
-            Assert.AreNotEqual(customerStub.Customers[0]._searches[0]._tips[0].Content, inValidDto._searches[0]._tips[0].Content, "Email was changed");
         }
         
         [TestMethod]
@@ -194,8 +177,8 @@ namespace WebAppProftS2Tests.DAL
             //arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var client = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             IApiCallManager manager = new ApiCallManager(client, requestBuilder);
             //act
             var (prospects, customers) = manager.LoadCustomerView();
@@ -205,14 +188,14 @@ namespace WebAppProftS2Tests.DAL
         }
         
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(ArgumentException))]
         public void LoadCustomerViewInvalidUrl()
         {
             //arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var client = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new InvalidRequestUrlBuilderScrub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new InvalidRequestUrlBuilderMock();
             IApiCallManager manager = new ApiCallManager(client, requestBuilder);
             //act
             var (prospects, customers) = manager.LoadCustomerView();
@@ -226,8 +209,8 @@ namespace WebAppProftS2Tests.DAL
             //arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var client = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new InvalidRequestBodyBuilderScrub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new InvalidRequestBodyBuilderMock();
             IApiCallManager manager = new ApiCallManager(client, requestBuilder);
             //act
             var (prospects, customers) = manager.LoadCustomerView();
@@ -240,8 +223,8 @@ namespace WebAppProftS2Tests.DAL
             //arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var client = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             IApiCallManager manager = new ApiCallManager(client, requestBuilder);
             var customerDto = new CustomerDTO() {
                 FirstName = "Test",
@@ -289,33 +272,30 @@ namespace WebAppProftS2Tests.DAL
             //arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var client = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             IApiCallManager manager = new ApiCallManager(client, requestBuilder);
             var inValidDto = customerStub.Customers[0];
-            var correctAmount = customerStub.Customers.Count;
             //act
-            manager.CreateCustomer(inValidDto);
+            var result = manager.CreateCustomer(inValidDto);
             //assert
-            Assert.AreEqual(correctAmount, customerStub.Customers.Count, "Customer was created");
         }
         
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(ArgumentException))]
         public void CreateCustomer_InvalidUrl()
         {
             //arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var client = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new InvalidRequestUrlBuilderScrub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new InvalidRequestUrlBuilderMock();
             IApiCallManager manager = new ApiCallManager(client, requestBuilder);
             var inValidDto = customerStub.Customers[0];
             var correctAmount = customerStub.Customers.Count;
             //act
             manager.CreateCustomer(inValidDto);
             //assert
-            Assert.AreEqual(correctAmount, customerStub.Customers.Count, "Customer was created");
         }
         
         [TestMethod]
@@ -325,15 +305,14 @@ namespace WebAppProftS2Tests.DAL
             //arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var client = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new InvalidRequestBodyBuilderScrub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new InvalidRequestBodyBuilderMock();
             IApiCallManager manager = new ApiCallManager(client, requestBuilder);
             var inValidDto = customerStub.Customers[0];
             var correctAmount = customerStub.Customers.Count;
             //act
             manager.CreateCustomer(inValidDto);
             //assert
-            Assert.AreEqual(correctAmount, customerStub.Customers.Count, "Customer was created");
         }
         
         [TestMethod]
@@ -342,25 +321,24 @@ namespace WebAppProftS2Tests.DAL
             //arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var client = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             IApiCallManager manager = new ApiCallManager(client, requestBuilder);
             var correctAmount = customerStub.Customers.Count - 1;
             //act
             manager.RemoveCustomer(customerStub.Customers[0]);
             //assert
-            Assert.AreEqual(correctAmount, customerStub.Customers.Count, "Customer was not removed");
         }
         
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(ArgumentException))]
         public void RemoveCustomer_InvalidCustomer()
         {
             //arrange
             var prospectStub = new ProspectStub();
             var customerStub = new CustomerStub();
-            var client = new ApiClientScrub(prospectStub, customerStub);
-            var requestBuilder = new ValidRequestBuilderScrub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
             IApiCallManager manager = new ApiCallManager(client, requestBuilder);
             var correctAmount = customerStub.Customers.Count;
             var customer = new CustomerDTO();
@@ -368,9 +346,38 @@ namespace WebAppProftS2Tests.DAL
             //act
             manager.RemoveCustomer(customer);
             //assert
-            Assert.AreEqual(correctAmount, customerStub.Customers.Count, "Customer was removed");
         }
         
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void LoadMapData_NotImplemented()
+        {
+            //arrange
+            var prospectStub = new ProspectStub();
+            var customerStub = new CustomerStub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
+            IApiCallManager manager = new ApiCallManager(client, requestBuilder);
+            //act
+            manager.LoadMapData();
+            //assert
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void testCreateCustomerExistingEmail()
+        {
+            //arrange
+            var prospectStub = new ProspectStub();
+            var customerStub = new CustomerStub();
+            var client = new ApiClientMock(prospectStub, customerStub);
+            var requestBuilder = new ValidRequestBuilderMock();
+            IApiCallManager manager = new ApiCallManager(client, requestBuilder);
+            var inValidDto = customerStub.Customers[0];
+            //act
+            manager.CreateCustomer(inValidDto);
+            //assert
+        }
     }
 }
 

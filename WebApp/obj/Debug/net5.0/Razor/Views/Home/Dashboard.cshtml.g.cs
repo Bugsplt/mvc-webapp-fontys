@@ -28,7 +28,9 @@ using WebAppProftS2.Models;
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d04515af6e2f263702c902ce2e8d662d3965a61d", @"/Views/Home/Dashboard.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"16740b0ee179359c6c1aecb07f3d671e6a7b16a4", @"/Views/_ViewImports.cshtml")]
+    #nullable restore
     public class Views_Home_Dashboard : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ContactView>
+    #nullable disable
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("style", new global::Microsoft.AspNetCore.Html.HtmlString("display: flex"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_1 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("ondblclick", new global::Microsoft.AspNetCore.Html.HtmlString("openCustomer(this.value)"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -87,7 +89,7 @@ Write(ViewData["Title"]);
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<!DOCTYPE html>\r\n<html>\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d5119", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d5165", async() => {
                 WriteLiteral("\r\n    <title>title</title>\r\n");
             }
             );
@@ -101,7 +103,7 @@ Write(ViewData["Title"]);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d6113", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d6159", async() => {
                 WriteLiteral("\r\n<screen style=\"display:flex;\">\r\n    <div style=\"left:0; position: relative; width: 70%\">\r\n        <div style=\"display: flex\">\r\n        <div style=\"left:0; position: relative; width: 20%\">\r\n            <label>Filters:</label>\r\n            <select");
                 BeginWriteAttribute("onchange", " onchange=\"", 448, "\"", 487, 3);
 #nullable restore
@@ -115,7 +117,7 @@ WriteAttributeValue("", 459, Model.Dropdown, 459, 15, false);
                 WriteAttributeValue(" ", 476, "this.value", 477, 11, true);
                 EndWriteAttribute();
                 WriteLiteral(">\r\n                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d7187", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d7233", async() => {
 #nullable restore
 #line 23 "C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\Views\Home\Dashboard.cshtml"
                     Write(Model.Dropdown = Dropdown.All);
@@ -135,7 +137,7 @@ WriteAttributeValue("", 459, Model.Dropdown, 459, 15, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d8398", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d8444", async() => {
 #nullable restore
 #line 24 "C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\Views\Home\Dashboard.cshtml"
                     Write(Model.Dropdown = Dropdown.Premium);
@@ -155,7 +157,7 @@ WriteAttributeValue("", 459, Model.Dropdown, 459, 15, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d9613", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d9659", async() => {
 #nullable restore
 #line 25 "C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\Views\Home\Dashboard.cshtml"
                     Write(Model.Dropdown = Dropdown.Free);
@@ -175,7 +177,7 @@ WriteAttributeValue("", 459, Model.Dropdown, 459, 15, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d10825", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d10871", async() => {
 #nullable restore
 #line 26 "C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\Views\Home\Dashboard.cshtml"
                     Write(Model.Dropdown = Dropdown.Prospects);
@@ -195,7 +197,7 @@ WriteAttributeValue("", 459, Model.Dropdown, 459, 15, false);
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n            </select>\r\n        </div>\r\n            <div style=\"position: relative; width: 80%\">\r\n                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d12148", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d12194", async() => {
                     WriteLiteral("\r\n                    <input type=\"text\" value=\"searchbar\" style=\"width: 80%\">\r\n                ");
                 }
                 );
@@ -230,7 +232,7 @@ WriteAttributeValue("", 459, Model.Dropdown, 459, 15, false);
 #line hidden
 #nullable disable
                 WriteLiteral("                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d14584", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d14630", async() => {
                     WriteLiteral("\r\n                                <div style=\"width: 33%\">");
 #nullable restore
 #line 49 "C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\Views\Home\Dashboard.cshtml"
@@ -294,7 +296,7 @@ WriteAttributeValue("", 459, Model.Dropdown, 459, 15, false);
 #line hidden
 #nullable disable
                 WriteLiteral("                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d18142", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d18188", async() => {
                     WriteLiteral("\r\n                                <div style=\"width: 33%\">");
 #nullable restore
 #line 60 "C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\Views\Home\Dashboard.cshtml"
@@ -358,7 +360,7 @@ WriteAttributeValue("", 459, Model.Dropdown, 459, 15, false);
 #line hidden
 #nullable disable
                 WriteLiteral("                            ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d21696", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d04515af6e2f263702c902ce2e8d662d3965a61d21742", async() => {
                     WriteLiteral("\r\n                                <div style=\"width: 33%\">");
 #nullable restore
 #line 71 "C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebApp\Views\Home\Dashboard.cshtml"
@@ -464,16 +466,26 @@ WriteAttributeValue("", 459, Model.Dropdown, 459, 15, false);
             WriteLiteral("\r\n</html>");
         }
         #pragma warning restore 1998
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.IUrlHelper Url { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.IUrlHelper Url { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.IViewComponentHelper Component { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.IViewComponentHelper Component { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IJsonHelper Json { get; private set; } = default!;
+        #nullable disable
+        #nullable restore
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
-        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<ContactView> Html { get; private set; }
+        public global::Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper<ContactView> Html { get; private set; } = default!;
+        #nullable disable
     }
 }
 #pragma warning restore 1591

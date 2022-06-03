@@ -14,7 +14,6 @@ namespace WebAppProftS2.Models
         public CustomerStatus Status { get; set; }
         //Notes
         public List<string> Notes { get; set; }
-        
         //SubPages
         //todo implement task models
         public List<string> Tasks { get; set; }
@@ -40,6 +39,8 @@ namespace WebAppProftS2.Models
         public string CatName { get; set; }
 
         public string CatId { get; set; }
+        
+        public string ErrorMessage { get; set; }
         
         public CustomerDetails(CustomerDTO dto)
         {

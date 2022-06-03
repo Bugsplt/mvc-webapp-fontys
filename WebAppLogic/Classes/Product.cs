@@ -54,7 +54,7 @@ namespace LogicLayer.Classes
 
         public Product(ProductDTO dto)
         {
-            Type = (ProductType) dto.Type;
+            Type = (ProductType)dto.Type;
             Price = dto.Price;
             _id = dto._id;
             DailyBudget = dto.DailyBudget;

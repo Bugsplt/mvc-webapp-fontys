@@ -23,16 +23,25 @@ namespace LogicLayer.Classes
 
         public ProductOrder(ProductOrderDTO dto)
         {
-            Product = new Product(dto.Product);
+            if (dto.Product != null)
+            {
+                Product = new Product(dto.Product);
+            }
             Amount = dto.Amount;
             _orderId = dto._orderId;
         }
         
         public ProductOrderDTO ToDto()
         {
-            return new()
+            var product = new ProductDTO();
+            if (Product != null)
             {
-                Product = Product.ToDto(),
+                product = Product.ToDto();
+            }
+
+            return new ProductOrderDTO
+            {
+                Product = product,
                 Amount = Amount,
                 _orderId = _orderId
             };

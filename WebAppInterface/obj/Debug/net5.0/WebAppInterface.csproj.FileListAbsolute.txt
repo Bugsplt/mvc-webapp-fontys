@@ -1,8 +1,6 @@
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppInterface\bin\Debug\net5.0\WebAppInterface.deps.json
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppInterface\bin\Debug\net5.0\WebAppInterface.dll
-C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppInterface\bin\Debug\net5.0\ref\WebAppInterface.dll
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppInterface\bin\Debug\net5.0\WebAppInterface.pdb
-C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppInterface\obj\Debug\net5.0\WebAppInterface.csprojAssemblyReference.cache
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppInterface\obj\Debug\net5.0\WebAppInterface.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppInterface\obj\Debug\net5.0\WebAppInterface.AssemblyInfoInputs.cache
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppInterface\obj\Debug\net5.0\WebAppInterface.AssemblyInfo.cs
@@ -10,3 +8,5 @@ C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppInterface\obj\Debug\net
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppInterface\obj\Debug\net5.0\WebAppInterface.dll
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppInterface\obj\Debug\net5.0\ref\WebAppInterface.dll
 C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppInterface\obj\Debug\net5.0\WebAppInterface.pdb
+C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppInterface\obj\Debug\net5.0\WebAppInterface.csproj.AssemblyReference.cache
+C:\Users\Tom\Desktop\WebAppKR\WebApplicationFontys\WebAppInterface\obj\Debug\net5.0\refint\WebAppInterface.dll

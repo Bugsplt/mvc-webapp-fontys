@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using InterfaceLayer.DTO;
 using LogicLayer;
@@ -27,10 +28,10 @@ namespace WebAppProftS2.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+        // public IActionResult Privacy()
+        // {
+        //     return View();
+        // }
         
         public IActionResult Dashboard()
         {
@@ -42,12 +43,18 @@ namespace WebAppProftS2.Controllers
         [HttpGet]
         public IActionResult CustomerView(string id)
         {
-            return View(new CustomerDetails(_factory.CustomerContainer.LoadCustomer(id)));
+            var details = new CustomerDetails(_factory.CustomerContainer.LoadCustomer(id));
+            return View(details);
         }
         
         [HttpPost]
         public IActionResult CustomerView(CustomerDetails details) 
         {
+            if (details.Email == null)
+            {
+                return RedirectToAction("CustomerView","Home",new{id=details.Id, errorMessage="Email is required"});
+            }
+
             var areas = new List<AreaDTO>();
             areas.Add(new AreaDTO() {
                 FbAdId = details.FbAdId,
@@ -61,18 +68,34 @@ namespace WebAppProftS2.Controllers
                 FbPostId = details.FbPostId,
                 IgPostId = details.InstaPostId
             });
-            
-            _factory.CustomerContainer.Update(new CustomerDTO() {
-                Id = details.Id,
-                FirstName = details.Name,
-                Email = details.Email,
-                Status = details.Status.ToString(),
-                Language = details.Language,
-                Country = details.Country,
-                PhoneNr = details.Phone,
-                _searches = searches
-            });
 
+            try
+            {
+                _factory.CustomerContainer.Update(new CustomerDTO()
+                {
+                    Id = details.Id,
+                    FirstName = details.Name,
+                    Email = details.Email,
+                    Status = details.Status.ToString(),
+                    Language = details.Language,
+                    Country = details.Country,
+                    PhoneNr = details.Phone,
+                    _searches = searches
+                });
+            } 
+            catch (Exception e)
+            {
+                if (e.Message == "email already exists")
+                {
+                    details.ErrorMessage = "Email must be unique";
+                    return RedirectToAction("CustomerView","Home",new{id = details.Id});
+                }
+                else
+                {
+                }
+            }
+            
+            
             //todo  
             Thread.Sleep(50);
             return RedirectToAction("CustomerView","Home",details.Id);
@@ -96,8 +119,25 @@ namespace WebAppProftS2.Controllers
         }
         
         [HttpGet]
-        public IActionResult CreateCustomer()
+        public IActionResult CreateCustomer(string errorDetails, string name, string email, string status, string language, string country, string phone, string fbAdId, string instaAdId, string catName, string fbPostId, string instaPostId)
         {
+            if (errorDetails != null)
+            {
+                return View(new CustomerDetails() {
+                    ErrorMessage = errorDetails,
+                    Name = name,
+                    Email = email,
+                    Status = Enum.Parse<CustomerStatus>(status),
+                    Language = language,
+                    Country = country,
+                    Phone = phone,
+                    FbAdId = fbAdId,
+                    InstaAdId = instaAdId,
+                    CatName = catName,
+                    FbPostId = fbPostId,
+                    InstaPostId = instaPostId
+                });
+            }
             return View(new CustomerDetails());
         }
         
@@ -117,17 +157,62 @@ namespace WebAppProftS2.Controllers
                 FbPostId = details.FbPostId,
                 IgPostId = details.InstaPostId
             });
+            var id = 0;
+            try
+            {
+                id = _factory.CustomerContainer.Create(new CustomerDTO()
+                {
+                    FirstName = details.Name,
+                    Email = details.Email,
+                    Status = details.Status.ToString(),
+                    Language = details.Language,
+                    Country = details.Country,
+                    PhoneNr = details.Phone,
+                    _searches = searches
+                });
+            } 
+            catch (Exception e)
+            {
+                if (e.Message == "email already exists")
+                {
+                    return RedirectToAction("CreateCustomer","Home",new {
+                        errorDetails = "Email must be unique", 
+                        details.Name,
+                        details.Email,
+                        Status = details.Status.ToString(),
+                        details.Language,
+                        details.Country,
+                        details.Phone,
+                        details.FbAdId,
+                        details.InstaAdId,
+                        details.CatName,
+                        details.FbPostId,
+                        details.InstaPostId
+                    });
+                }
+                else if (e.Message == "No email given")
+                {
+                    return RedirectToAction("CreateCustomer","Home",new {
+                        errorDetails = "Email is required", 
+                        details.Name,
+                        details.Email,
+                        Status = details.Status.ToString(),
+                        details.Language,
+                        details.Country,
+                        details.Phone,
+                        details.FbAdId,
+                        details.InstaAdId,
+                        details.CatName,
+                        details.FbPostId,
+                        details.InstaPostId
+                    });
+                }
+                else
+                {
+                    throw;
+                }
+            }
             
-            var id = _factory.CustomerContainer.Create(new CustomerDTO() {
-                FirstName = details.Name,
-                Email = details.Email,
-                Status = details.Status.ToString(),
-                Language = details.Language,
-                Country = details.Country,
-                PhoneNr = details.Phone,
-                _searches = searches
-            });
-
             //todo  
             Thread.Sleep(50);
             return RedirectToAction("CustomerView","Home",new {id});   

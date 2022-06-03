@@ -2,9 +2,9 @@
 using InterfaceLayer.DTO;
 using InterfaceLayer.Interface;
 
-namespace WebAppProftS2Tests.Scrubs
+namespace WebAppProftS2Tests.Mocks
 {
-    public class ValidRequestBuilderScrub : IRequestBuilder
+    public class ValidRequestBuilderMock : IRequestBuilder
     {
         public (string, string) GetCustomerOverView()
         {

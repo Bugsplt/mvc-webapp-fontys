@@ -7,10 +7,10 @@ namespace LogicLayer.Classes
     {
         public DateTime Date { get; private set; }
         public string Type { get; private set; }
-        public string Description { get; private set; }
+        public string Description { get; set; }
 
-        private int _id;
-        
+        public int _id { get; private set; }
+
         public void SetDate(DateTime date)
         {
             Date = date;

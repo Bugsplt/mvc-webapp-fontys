@@ -28,43 +28,44 @@
                     <div style="height: 100%; width: 100%; overflow: scroll">
                         <div style="display: flex">
                             <p>Email: </p>
-                            @Html.TextBoxFor(model => model.Email)
+                            @Html.TextBoxFor(model => model.Email, new { Value = Model.Email })
+                            <p><b>@Model.ErrorMessage</b></p>
                         </div>
                         <div style="display: flex">
                             <p>Name: </p>
-                            @Html.TextBoxFor(model => model.Name)
+                            @Html.TextBoxFor(model => model.Name, new { Value = Model.Name })
                         </div>
                         <div style="display: flex">
                             <p>Cat name: </p>
-                            @Html.TextBoxFor(model => model.CatName)
+                            @Html.TextBoxFor(model => model.CatName, new { Value = Model.CatName })
                         </div>
                         <div style="display: flex">
                             <p>Phone number: </p>
-                            @Html.TextBoxFor(model => model.Phone)
+                            @Html.TextBoxFor(model => model.Phone, new { Value = Model.Phone })
                         </div>
                         <div style="display: flex">
                             <p>Country: </p>
-                            @Html.TextBoxFor(model => model.Country)
+                            @Html.TextBoxFor(model => model.Country, new { Value = Model.Country })
                         </div>
                         <div style="display: flex">
                             <p>Language: </p>
-                            @Html.TextBoxFor(model => model.Language)
+                            @Html.TextBoxFor(model => model.Language, new { Value = Model.Language })
                         </div>
                         <div style="display: flex">
                             <p> Insta post id: </p>
-                            @Html.TextBoxFor(model => model.InstaPostId)
+                            @Html.TextBoxFor(model => model.InstaPostId, new { Value = Model.InstaPostId })
                         </div>
                         <div style="display: flex">
                             <p>Insta ad id: </p>
-                            @Html.TextBoxFor(model => model.InstaAdId)
+                            @Html.TextBoxFor(model => model.InstaAdId, new { Value = Model.InstaAdId })
                         </div>
                         <div style="display: flex">
                             <p>Fb post id: </p>
-                            @Html.TextBoxFor(model => model.FbPostId)
+                            @Html.TextBoxFor(model => model.FbPostId, new { Value = Model.FbPostId })
                         </div>
                         <div style="display: flex">
                             <p>Fb ad id: </p>
-                            @Html.TextBoxFor(model => model.FbAdId)
+                            @Html.TextBoxFor(model => model.FbAdId, new { Value = Model.FbAdId})
                         </div>
                     </div>
                 </div>

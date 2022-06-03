@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2yRq+OpYW36JMErvA47NBt77xM3qBN9aAS+npXvBioUrWhBnanljCamzz7wn2r8KjOSZF1pVve9S6Wbhhh34IA==",
+  "dgSpecHash": "DOMBOUGABBgGeRhSmXVlZEbvPqmRaWrpKDCyrVdtnhqUtY5e4xVa+zU4cfyA/T2wd5Jt80Ap6SBGaEoEx6mFig==",
   "success": true,
   "projectFilePath": "C:\\Users\\Tom\\Desktop\\WebAppKR\\WebApplicationFontys\\Containership\\Containership.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Tom\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
+  ],
   "logs": []
 }

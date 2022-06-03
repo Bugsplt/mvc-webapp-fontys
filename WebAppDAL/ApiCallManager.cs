@@ -20,7 +20,7 @@ namespace WebAppDAL
         public CustomerDTO LoadCustomerDetailView(string id)
         {
             var (body, url) = _requestBuilder.GetCustomerDetails(id);
-            var json = _apiClient.Post(body,url); 
+            var json = _apiClient.Post(body,url);
             var token = JToken.Parse(json);
             var activities = new List<ActivityDTO>();
             if (token["activity"] != null)
@@ -79,17 +79,30 @@ namespace WebAppDAL
         public void UpdateCustomerDetails(CustomerDTO detailDto)
         {
             var (body, url) = _requestBuilder.UpdateCustomerDetails(detailDto);
-            _apiClient.Post(body,url); 
+            var response = _apiClient.Post(body,url); 
+            // if (response == "email already exists")
+            // {
+            //     throw new Exception("email already exists");
+            // }
         }
         
         public int CreateCustomer(CustomerDTO detailDto)
         {
             var (body, url) = _requestBuilder.CreateCustomer(detailDto);
-            var json = _apiClient.Post(body,url); 
+            var json = _apiClient.Post(body,url);
+            if (json == "email already exists")
+            {
+                throw new Exception("email already exists");
+            }
             var token = JToken.Parse(json); 
             return int.Parse(token["id"]?.ToString() ?? throw new InvalidOperationException("Customer not created"));
         }
-        
+
+        public List<MapDataDTO> LoadMapData()
+        {
+            throw new Exception();
+        }
+
         public (List<ProspectDTO>, List<CustomerDTO>) LoadCustomerView()
         {
             var (body, url) = _requestBuilder.GetCustomerOverView();
@@ -129,7 +142,5 @@ namespace WebAppDAL
             var (body, url) = _requestBuilder.RemoveCustomer(customer);
             _apiClient.Post(body, url);
         }
-        
-        
     }
 }

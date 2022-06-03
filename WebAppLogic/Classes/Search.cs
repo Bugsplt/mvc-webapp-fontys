@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using InterfaceLayer.DTO;
 using LogicLayer.Enums;
 
@@ -13,7 +14,7 @@ namespace LogicLayer.Classes
         public string PostMssg { get; private set; }
         public string AdCampId { get; private set; }
         public string Tag { get; private set; }
-        public string FbPostId { get; private set; }
+        public string FbPostId { get; set; }
         public string IgPostId { get; private set; }
         public string IgPostUrl { get; private set; }
         public string CatImg { get; private set; }
@@ -21,7 +22,7 @@ namespace LogicLayer.Classes
         public string PostImg { get; private set; }
         public double AdSpent { get; private set; }
 
-        private string _searchNr;
+        public string _searchNr;
         private List<Tip> _tips;
         private List<Area> _areas;
         private List<SearchStat> _searchStats;
@@ -109,7 +110,17 @@ namespace LogicLayer.Classes
 
         public void Remove(Area area)
         {
-            _areas.Remove(area);
+            foreach (var area1 in _areas)
+            {
+                if (area1.ToDto()._id == area.ToDto()._id)
+                {
+                    _areas.Remove(area1);
+                    return;
+                }
+                
+            }
+
+            throw new Exception("Area not found");
         }
 
         public void Add(Tip tip)
@@ -119,7 +130,16 @@ namespace LogicLayer.Classes
 
         public void Remove(Tip tip)
         {
-            _tips.Remove(tip);
+            foreach (var tip1 in _tips)
+            {
+                if (tip1.ToDto()._id == tip.ToDto()._id)
+                {
+                    _tips.Remove(tip1);
+                    return;
+                }
+            }
+
+            throw new Exception("Tip not found");
         }
 
         public void Add(SearchStat searchStat)
@@ -129,12 +149,21 @@ namespace LogicLayer.Classes
 
         public void Remove(SearchStat searchStat)
         {
-            _searchStats.Remove(searchStat);
+            foreach (var searchStat1 in _searchStats)
+            {
+                if (searchStat1.ToDto()._id == searchStat.ToDto()._id)
+                {
+                    _searchStats.Remove(searchStat1);
+                    return;
+                }
+            }
+
+            throw new Exception("Search stat not found");
         }
 
         public void Load()
         {
-            //todo get this searches content from api and fill out lists
+            throw new Exception();
         }
 
         public void Clear()
@@ -143,8 +172,10 @@ namespace LogicLayer.Classes
             _areas.Clear();
             _searchStats.Clear();
         }
-        
-        public Search(){}
+
+        public Search()
+        {
+        }
 
         public Search(SearchDTO dto)
         {
@@ -202,23 +233,33 @@ namespace LogicLayer.Classes
         public SearchDTO ToDto()
         {
             var tipDtos = new List<TipDTO>();
-            foreach (var tip in _tips)
+            if (_tips != null)
             {
-                tipDtos.Add(tip.ToDto());
+                foreach (var tip in _tips)
+                {
+                    tipDtos.Add(tip.ToDto());
+                }
             }
 
             var areaDtos = new List<AreaDTO>();
-            foreach (var area in _areas)
+            if (_areas != null)
             {
-                areaDtos.Add(area.ToDto());
+                foreach (var area in _areas)
+                {
+                    areaDtos.Add(area.ToDto());
+                }
             }
 
+
             var searchStatDtos = new List<SearchStatDTO>();
-            foreach (var searchStat in _searchStats)
+            if (_searchStats != null)
             {
-                searchStatDtos.Add(searchStat.ToDto());
+                foreach (var searchStat in _searchStats)
+                {
+                    searchStatDtos.Add(searchStat.ToDto());
+                }
             }
-            
+
             var feedbackDto = new FeedbackDTO();
             if (Feedback != null)
             {

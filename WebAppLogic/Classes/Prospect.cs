@@ -20,7 +20,12 @@ namespace LogicLayer.Classes
         public float Lng { get; private set; }
         public string ProspectNr { get; private set; }
 
-        private List<Activity> _activities;
+        private List<Activity> _activities = new List<Activity>();
+        
+        public IReadOnlyCollection<Activity> GetActivities()
+        {
+            return _activities;
+        }
 
         public void SetCatName(string catName)
         {

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using InterfaceLayer.DTO;
 using Newtonsoft.Json.Linq;
 
@@ -99,16 +100,39 @@ namespace LogicLayer.Classes
 
           public void AddSearch(Search search)
           {
+               foreach (var s in _searches)
+               {
+                    if (s.FbPostId == search.FbPostId)
+                    {
+                         throw new ArgumentException("Search already exists");
+                    }
+               }
                _searches.Add(search);
           }
 
           public void RemoveSearch(Search search)
           {
-               _searches.Remove(search);
+               foreach (var search1 in _searches)
+               {
+                    if  (search1.FbPostId == search.FbPostId)
+                    {
+                         _searches.Remove(search);
+                         return;
+                    }
+               }
+               throw new ArgumentException("Search not found");
           }
 
           public void AddActivity(Activity activity)
           {
+               foreach (var activity1 in _activities)
+               {
+                    if (activity1.Date == activity.Date)
+                    {
+                         throw new ArgumentException("Activity already exists");
+                    }
+               }
+
                _activities.Add(activity);
           }
 
@@ -152,6 +176,5 @@ namespace LogicLayer.Classes
                     Status = Status
                };
           }
-
      }
 }

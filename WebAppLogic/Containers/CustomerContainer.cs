@@ -24,37 +24,21 @@ namespace LogicLayer.Containers
             return Customers;
         }
 
-        public void Add(Customer customer)
-        {
-            _apiCallManager.CreateCustomer(customer.ToDto());
-            Customers.Add(customer);
-        }
+        // public void Add(Customer customer)
+        // {
+        //     _apiCallManager.CreateCustomer(customer.ToDto());
+        //     Customers.Add(customer);
+        // }
         
         public void Remove(CustomerDTO customer)
         {
-            try
-            { 
-                _apiCallManager.RemoveCustomer(customer);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            _apiCallManager.RemoveCustomer(customer);
             Customers.Remove(Customers.Find(c => c.Id == customer.Id));
         }
                         
         public void Update(CustomerDTO customer)
         {
-            try
-            {
-                _apiCallManager.UpdateCustomerDetails(customer);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            _apiCallManager.UpdateCustomerDetails(customer);
             var customerToUpdate = Customers.Find(c => c.Id == customer.Id);
             Customers.Remove(customerToUpdate);
             Customers.Add(new Customer(customer));
@@ -75,7 +59,7 @@ namespace LogicLayer.Containers
                     return customer;
                 }
             }
-            return null;
+            throw new ArgumentException("Customer not found");
         }
         
         public CustomerDTO LoadCustomer(string id)
@@ -84,14 +68,10 @@ namespace LogicLayer.Containers
             if (customer != null)
             {
                 Customers.Remove(customer);
-                var customerDto = _apiCallManager.LoadCustomerDetailView(id);
-                Customers.Add(new Customer(customerDto));
-                return customerDto;
             }
-            else
-            {
-                return null;
-            }
+            var customerDto = _apiCallManager.LoadCustomerDetailView(id);
+            Customers.Add(new Customer(customerDto));
+            return customerDto;
         }
         
         public void Load()
@@ -106,16 +86,12 @@ namespace LogicLayer.Containers
 
         public int Create(CustomerDTO customer)
         {
+            if (customer.Email == null)
+            {
+                throw new Exception("No email given");
+            }
             int id;
-            try
-            {
-                id = _apiCallManager.CreateCustomer(customer);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            id = _apiCallManager.CreateCustomer(customer);
             customer.Id = id.ToString();
             Customers.Add(new Customer(customer));
             return id;

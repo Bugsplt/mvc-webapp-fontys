@@ -8,9 +8,9 @@ using LogicLayer.Classes;
 using Newtonsoft.Json.Linq;
 using WebAppProftS2Tests.Stubs;
 
-namespace WebAppProftS2Tests.Scrubs
+namespace WebAppProftS2Tests.Mocks
 {
-    public class ApiClientScrub : IApiClient
+    public class ApiClientMock : IApiClient
     {
         private ProspectStub _prospectStub;
         private CustomerStub _customerStub;
@@ -24,7 +24,7 @@ namespace WebAppProftS2Tests.Scrubs
         {
             if (postUrl == "invalid")
             {
-                throw new Exception("Invalid Post Url");
+                throw new ArgumentException("Invalid Post Url");
             }
 
             if (body == "invalid")
@@ -84,7 +84,7 @@ namespace WebAppProftS2Tests.Scrubs
 
                     if (customerDetails == null)
                     {
-                        throw new Exception("Customer not found");
+                        throw new ArgumentException("Customer not found");
                     }
 
                     var activities = new JArray();
@@ -144,6 +144,7 @@ namespace WebAppProftS2Tests.Scrubs
                                                                 throw new InvalidOperationException(
                                                                     "Content was null"));
                     return "success";
+                //removes a customer
                 case "https://server.kattenradar.nl/remove-customer":
                     CustomerDTO customerDetails2 = null;
                     foreach (var customerStubCustomer in _customerStub.Customers)
@@ -156,14 +157,27 @@ namespace WebAppProftS2Tests.Scrubs
 
                     if (customerDetails2 == null)
                     {
-                        throw new Exception("Customer not found");
+                        throw new ArgumentException("Customer not found");
                     }
 
                     _customerStub.Customers.Remove(customerDetails2);
                     return "success";
+                //creates a new customer
                 case "https://server.kattenradar.nl/create-customer":
+                    var contained = false;
                     var test = JToken.Parse(body)["content"]?.ToString();
                     var customer = JsonSerializer.Deserialize<CustomerDTO>(test);
+                   foreach (var customerStubCustomer in _customerStub.Customers)
+                   {
+                       if (customerStubCustomer.Email == customer?.Email)
+                       {
+                           contained = true;
+                       }
+                   }
+                    if (contained)
+                    {
+                        throw new ArgumentException("A customer with this email already exists");
+                    }
                     customer.Id = (_customerStub.Customers.Count + 1).ToString();
                     foreach (var customerStubCustomer in _customerStub.Customers)
                     {
@@ -182,7 +196,7 @@ namespace WebAppProftS2Tests.Scrubs
             }
         }
 
-        public ApiClientScrub(ProspectStub prospectStub, CustomerStub customerStub)
+        public ApiClientMock(ProspectStub prospectStub, CustomerStub customerStub)
         {
             _prospectStub = prospectStub;
             _customerStub = customerStub;

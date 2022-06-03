@@ -13,17 +13,17 @@ namespace WebAppProftS2.Models
         
         public ContactView(IReadOnlyList<Customer> customers, IReadOnlyList<Prospect> prospects)
         {
-            foreach (var prospect in prospects)
-            {
-                var customerSelect = new CustomerSelect()
-                {
-                    Id = prospect.ProspectNr,
-                    Email = prospect.Email,
-                    Name = "Cat: " + prospect.CatName,
-                    PhoneNr = prospect.PhoneNr
-                };
-                Prospects.Add(customerSelect);
-            }
+            // foreach (var prospect in prospects)
+            // {
+            //     var customerSelect = new CustomerSelect()
+            //     {
+            //         Id = prospect.ProspectNr,
+            //         Email = prospect.Email,
+            //         Name = "Cat: " + prospect.CatName,
+            //         PhoneNr = prospect.PhoneNr
+            //     };
+            //     Prospects.Add(customerSelect);
+            // }
             
             foreach (var customer in customers)
             {
@@ -44,14 +44,14 @@ namespace WebAppProftS2.Models
             };
             foreach (var search in customer.GetSearches())
             {
-
+        
                 if (search.AdStatus == AdStatus.Review || search.AdStatus == AdStatus.Active)
                 {
                     PremiumCustomers.Add(customerSelect);
                     return;
                 }
             }
-
+        
             FreeCustomers.Add(customerSelect);
         }
     }

@@ -32,7 +32,10 @@ namespace LogicLayer.Containers
 
         public void Load()
         {
-            //todo get list content from api
+            foreach (var mapDataDto in _apiCallManager.LoadMapData())
+            {
+                MapDataList.Add(new MapData(mapDataDto));
+            }
         }
 
         public MapDataContainer(IApiCallManager apiCallManager)

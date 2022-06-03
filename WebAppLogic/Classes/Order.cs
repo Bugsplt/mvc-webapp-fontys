@@ -11,8 +11,8 @@ namespace LogicLayer.Classes
         public DateTime Date { get; private set; }
         public string MollieId { get; private set; }
 
-        private int _id;
-        private List<ProductOrder> _productOrders;
+        public int Id { get; private set; }
+        private List<ProductOrder> _productOrders = new();
 
         public IReadOnlyList<ProductOrder> GetProductOrders()
         {
@@ -62,7 +62,7 @@ namespace LogicLayer.Classes
             PaymentStatus = (PaymentStatus) dto.PaymentStatus;
             Date = dto.Date;
             MollieId = dto.MollieId;
-            _id = dto._id;
+            Id = dto._id;
             _productOrders = productOrders;
         }
         
@@ -79,7 +79,7 @@ namespace LogicLayer.Classes
                 PaymentStatus = (InterfaceLayer.Enums.PaymentStatus) PaymentStatus,
                 Date = Date,
                 MollieId = MollieId,
-                _id = _id,
+                _id = Id,
                 _productOrders = productOrderDtos
             };
         }

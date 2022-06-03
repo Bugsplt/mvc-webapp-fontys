@@ -104,5 +104,16 @@ namespace WebAppProftS2Tests.DAL
             Assert.AreEqual(token["content"]?["_searches"]?[0]?["_areas"]?[0]?["IgAdId"],"someIgAdId","ig ad id could not be parsed from json");
             Assert.AreEqual(token["content"]?["_searches"]?[0]?["_areas"]?[0]?["FbAdId"],"someFbAdId","fb ad id could not be parsed from json");
         }
+
+        [TestMethod]
+        public void TestGetCustomerOverview()
+        {
+            //Arrange
+            var requestBuilder = new RequestBuilder();
+            //Act
+            var (body, url) = requestBuilder.GetCustomerOverView();
+            //Assert
+            Assert.AreEqual("https://server.kattenradar.nl/get-dashboard-overview", url);
+            Assert.AreEqual("{\"key\":\"5fbdfe2ff544aade4708dd58fa6962a\"}", body);      }
     }
 }
