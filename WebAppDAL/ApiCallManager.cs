@@ -79,11 +79,7 @@ namespace WebAppDAL
         public void UpdateCustomerDetails(CustomerDTO detailDto)
         {
             var (body, url) = _requestBuilder.UpdateCustomerDetails(detailDto);
-            var response = _apiClient.Post(body,url); 
-            // if (response == "email already exists")
-            // {
-            //     throw new Exception("email already exists");
-            // }
+            var response = _apiClient.Post(body,url);
         }
         
         public int CreateCustomer(CustomerDTO detailDto)
